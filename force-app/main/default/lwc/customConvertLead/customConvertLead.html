@@ -1,0 +1,53 @@
+<template>
+    <template if:true={temp}>
+        <!--<center><div style="font-size: 20px;"><u><b>Covert To Customer</b></u></div></center><br/><br/><br/>-->
+        <center>
+            <div style="color:red; font-size:30px; height: 90px; "><h1 style="margin-top: 90px;"><b> Lead Is Already Converted.</b></h1></div><br/><br/>
+            <br/><br/>
+        </center>
+        <footer class="slds-modal__footer">
+            <div style="right: auto;">
+                <lightning-button label="Cancel" variant="brand" onclick={handleCancel}></lightning-button>
+            </div>
+        </footer>
+    </template>
+
+    <template if:true={isOpp}>
+        <!--<center><div style="font-size: 20px;"><u><b>Covert To Customer</b></u></div></center><br/><br/><br/>-->
+        <center>
+            <div style="color:red; font-size:30px; height: 90px; "><h1 style="margin-top: 90px;"><b> Lead Has No Enquiry!!!<br/>Please Add Enquiry To Convert.</b></h1></div><br/>
+            <br/><br/>
+        </center>
+        <footer class="slds-modal__footer">
+            <div style="right: auto;">
+                <lightning-button label="Cancel" variant="brand" onclick={handleCancel}></lightning-button>
+            </div>
+        </footer>
+    </template>
+
+    <template if:true={checkStg}>
+        <!--<center><div style="font-size: 20px;"><u><b>Covert To Customer</b></u></div></center><br/><br/><br/>-->
+        <center>
+            <div style="color:red; font-size:30px; height: 90px; "><h1 style="margin-top: 90px;"><b> There Is No Enquiry With Stage 'Enquiry Won'!!!</b></h1></div><br/>
+            <br/><br/>
+        </center>
+        <footer class="slds-modal__footer">
+            <div style="right: auto;">
+                <lightning-button label="Cancel" variant="brand" onclick={handleCancel}></lightning-button>
+            </div>
+        </footer>
+    </template>
+   
+    <template if:true={temp1}>
+    <center><div style="font-size: 20px;"><b>Convert To Customer</b></div></center>
+    <lightning-input label="Customer First Name" value={accfName} class="acfName"></lightning-input>
+    <lightning-input label="Customer Middle Name" value={accmName} class="acmName"></lightning-input>
+    <lightning-input label="Customer Last Name" value={acclName} class="aclName"></lightning-input><br/><br/>
+        <footer class="slds-modal__footer">
+            <div style="right: auto;">
+                <lightning-button label="Cancel" variant="" onclick={handleCancel}></lightning-button>&nbsp;&nbsp;
+                <lightning-button label="Convert" variant="brand" onclick={handleConvert}></lightning-button>
+            </div>
+        </footer>
+    </template>
+</template>

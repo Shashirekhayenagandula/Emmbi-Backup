@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This flow works when upload shipment tracking info is created and order status change to Dispatched Awating Final Payment</description>
+    <interviewLabel>Update Order status(DWFP) when Update shipment Tracking Info {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update Order status(DWFP) when Upload shipment Tracking Info</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_order_status</name>
+        <label>Update order status</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Select_Order__r.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Dispatched Awaiting Final Payment</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Retail_Order__c</object>
+    </recordUpdates>
+    <startElementReference>Update_order_status</startElementReference>
+    <status>Active</status>
+</Flow>

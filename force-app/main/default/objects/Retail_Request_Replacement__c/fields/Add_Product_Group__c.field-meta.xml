@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Add_Product_Group__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Add Product Group</label>
+    <referenceTo>Retail_Product_Group__c</referenceTo>
+    <relationshipLabel>Retail Request Replacement</relationshipLabel>
+    <relationshipName>Retail_Request_Replacement</relationshipName>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

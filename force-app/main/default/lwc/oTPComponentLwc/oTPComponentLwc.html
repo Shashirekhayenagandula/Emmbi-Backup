@@ -1,0 +1,14 @@
+<template>
+    
+    <center>
+        <b><h1>Enter Your Customer OTP</h1></b>
+         <lightning-input  class="OTP"></lightning-input>
+    </center><br/><br/><br/>
+    <footer class="slds-modal__footer">
+        <div style="right: auto;">
+            <lightning-button label="Cancel" variant="destructive" onclick={handleCancel}></lightning-button>&nbsp;&nbsp;
+            <lightning-button label="SUBMIT" variant="Success" onclick={handleSubmit} disabled={clickSubmit}></lightning-button>
+        </div>
+    </footer>
+    
+</template>

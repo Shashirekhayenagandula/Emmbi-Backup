@@ -1,0 +1,34 @@
+<template>
+    <lightning-card class="slds-m-around_medium">
+    <div class="slds-m-around_large">
+         <div if:true={isLoaded}>
+            <lightning-spinner
+                alternative-text="Loading..." variant="brand">
+            </lightning-spinner>
+        </div>
+    </div>
+        <template for:each={records} for:item="prod">
+            <div key={prod.Id}>
+                <div>
+                    <lightning-input class="slds-p-around_small" type="text" name="Product Id" label="Product Id" value={prod.Id} disabled></lightning-input>
+                    <lightning-input class="slds-p-around_small" type="text" name="Product Name" label="Prod Name" value={prod.Name} disabled></lightning-input>
+                </div>
+                <div>
+                    <lightning-input class="slds-p-around_small" type="text" name="Add Quantity" label="Add Quantity" value={prod.Add_Qty__c} disabled></lightning-input>
+                </div>
+                <div>
+                    <lightning-input class="slds-p-around_small" type="text" name="In Stock" label="In Stock" value={prod.Instock__c} disabled></lightning-input>
+                </div>
+                <div>
+                    <lightning-input class="slds-p-around_small" type="text" name="Sales Quantity" label="Sales Quantity" value={prod.Sales_Qty__c} disabled></lightning-input>
+                </div>
+                <div>
+                    <lightning-input class="slds-p-around_small" type="text" name="Product Quantity" label="Products Quantity" value={ProdQuantity} onchange={handleProductQuantity}></lightning-input>
+                </div>
+                <div>
+                    <lightning-button variant="brand" label="Proceed" title="Primary action" onclick={updateProductQuantity} class="slds-m-left_x-small"></lightning-button>
+                </div>
+            </div>
+        </template>
+    </lightning-card>
+</template>

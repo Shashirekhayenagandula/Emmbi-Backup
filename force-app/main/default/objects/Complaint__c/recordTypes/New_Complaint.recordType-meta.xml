@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>New_Complaint</fullName>
+    <active>true</active>
+    <description>Only open when new complaint create</description>
+    <label>New Complaint</label>
+    <picklistValues>
+        <picklist>Approval_Request__c</picklist>
+        <values>
+            <fullName>Approval Pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Approved</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Complaint_Due_to__c</picklist>
+        <values>
+            <fullName>Company</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Distributor%2FDealer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Farmer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Old distributor</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Complaint_Source__c</picklist>
+        <values>
+            <fullName>CRM team</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dealer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Distributor</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Others</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Quality Team</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sales team</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Toll Free Number</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Website</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Complaint_Type_New__c</picklist>
+        <values>
+            <fullName>Animals problem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bubbles in lamination</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Colour mismatch</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Company joint problem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fabric fallen into pond</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fabric shortage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Fire problem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Holes%2Ftears in fabric</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lamination%2FCoating problem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Operator joint problem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Stones problem</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Underwater leakage</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Complaint_Type__c</picklist>
+        <values>
+            <fullName>Damage Fabric - Transport%2FLogistics</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Delay in Supply</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Faulty fabric - Manufacturing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Leakage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supply shortage</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Inactive_Due_To__c</picklist>
+        <values>
+            <fullName>Consumer Court</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Distributor will solve complaint</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Underwater repair done%2C permanent repair pending</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiting for farmer payment</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiting for farmer to empty pond</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiting for farmer to reply</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>MaterialTypeprovided__c</picklist>
+        <values>
+            <fullName>Jalasanchay</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jalasanchay Super</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Samruddhi 300</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Samruddhi 400</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>OTP_Language__c</picklist>
+        <values>
+            <fullName>Hindi</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Kannada</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Marathi</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Operator_Name__c</picklist>
+        <values>
+            <fullName>ASHHG02-Sunil Dongardive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ASHHG04-Rajesh Kumar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ASHTM01-Bharat Bhand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AVATM01-Abhay Yadav</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AVATM04-Bhushan Rathod</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ajeet Rathod</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Akash Mohite</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Akhilesh Yadav</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Arvind Kushwaha</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Avinash Chivhan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BALTM01-Vitthal Dhere</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BALTM04-Pradip Lohakare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bapu Shirsath</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chanilal Singh</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chotelal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deepak Bhusari</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gorakh Yadav</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Govinda Yadav</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Himanshu Kushawaha</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>JINHG01-Ainl Jhinjha</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>JINHG02-pankaj Godara</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KRUTM01-Anil Kushawaha</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Krushna Shinde</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Laxman Lokhande</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lokhan Parkhe</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nikhil Mohite</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pankaj Kumar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pawan Kadwa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pradeep Dhakad</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rahul Dhakad</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Raju %28Devilal ji%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ram Sadan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ramanand Kushwaha</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ramesh Kumar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Roshan Rathod</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SAITM01-Rahul Yadav</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SARTM02-Shekhar Zarekar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sachin Bansode</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Santosh Helwar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Satish Bhambre</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Satosh Yadav</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shankar %28Chhabra Sales%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sharad Gavhane</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sonu Giri %28Devilal ji%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sudhir Yadav</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sunil Dongardive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suresh Pitale</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tejas Kadam</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Umesh Yadav</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vinod Kushwah</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vishal Deshmukh</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Viswanath Awati</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vivek Rai</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Operator_machine_used__c</picklist>
+        <values>
+            <fullName>Handgun</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Twinny</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Reason_of_failure__c</picklist>
+        <values>
+            <fullName>Sealing too tight</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Resolution_Vendor_Name__c</picklist>
+        <values>
+            <fullName>Baliraja Irrigation %26 Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Eknath Agro Services</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shivtare Services</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Resolution__c</picklist>
+        <values>
+            <fullName>Repair</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Replacement</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Stages__c</picklist>
+        <values>
+            <fullName>Closed without OTP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Ongoing</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

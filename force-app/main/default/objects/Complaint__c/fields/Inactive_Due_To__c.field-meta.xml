@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inactive_Due_To__c</fullName>
+    <externalId>false</externalId>
+    <label>Inactive Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Distributor will solve complaint</fullName>
+                <default>false</default>
+                <label>Distributor will solve complaint</label>
+            </value>
+            <value>
+                <fullName>Waiting for farmer to empty pond</fullName>
+                <default>false</default>
+                <label>Waiting for farmer to empty pond</label>
+            </value>
+            <value>
+                <fullName>Waiting for farmer to reply</fullName>
+                <default>false</default>
+                <label>Waiting for farmer to reply</label>
+            </value>
+            <value>
+                <fullName>Underwater repair done, permanent repair pending</fullName>
+                <default>false</default>
+                <label>Underwater repair done, permanent repair pending</label>
+            </value>
+            <value>
+                <fullName>Waiting for farmer payment</fullName>
+                <default>false</default>
+                <label>Waiting for farmer payment</label>
+            </value>
+            <value>
+                <fullName>Consumer Court</fullName>
+                <default>false</default>
+                <label>Consumer Court</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

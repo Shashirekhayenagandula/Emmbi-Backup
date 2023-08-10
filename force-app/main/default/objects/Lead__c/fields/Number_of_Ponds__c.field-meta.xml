@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Number_of_Ponds__c</fullName>
+    <description>Counts the number of Product Informations (Pond liner only, not retail) that is owned by this Farmer.</description>
+    <externalId>false</externalId>
+    <label>Number of Ponds</label>
+    <summaryForeignKey>Opportunity__c.Lead__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>

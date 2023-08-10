@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Select_Order__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Select Order</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>Retail_Order__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Commercial : Ready For Dispatch</value>
+        </filterItems>
+        <isOptional>true</isOptional>
+    </lookupFilter>
+    <referenceTo>Retail_Order__c</referenceTo>
+    <relationshipLabel>Retail Upload Shipment tracking Info</relationshipLabel>
+    <relationshipName>Retail_Upload_Shipment_tracking_Info</relationshipName>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

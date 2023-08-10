@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Complaint_Lock_Once_Closed</fullName>
+    <active>true</active>
+    <description>Can&apos;t Change the Stage Once Complaint Closed.</description>
+    <errorConditionFormula>AND(TEXT(PRIORVALUE( Stages__c )) = &apos;Closed with OTP&apos;, ISCHANGED( Stages__c ))</errorConditionFormula>
+    <errorMessage>Your record has been Locked. You Can&apos;t Change.</errorMessage>
+</ValidationRule>

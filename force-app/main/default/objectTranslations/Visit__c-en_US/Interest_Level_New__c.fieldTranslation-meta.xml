@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label></label>
+    <name>Interest_Level_New__c</name>
+    <picklistValues>
+        <masterLabel>Contact Later</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Not Interested - Working for Other Pond Lining Company</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Not Interested in Pond Lining</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Positive</masterLabel>
+        <translation></translation>
+    </picklistValues>
+</CustomFieldTranslation>

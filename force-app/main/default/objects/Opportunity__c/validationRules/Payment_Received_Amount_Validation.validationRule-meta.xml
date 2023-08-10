@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Payment_Received_Amount_Validation</fullName>
+    <active>false</active>
+    <description>Payment Received Amount canot be blank when marking stage as Converted. This validation is not applied to legacy records (i.e. ponds with invoices before the 2021-22 fiscal year - as we were not using salesforce at that time).</description>
+    <errorConditionFormula>IF(ISPICKVAL( Opportunity_Stage__c ,&apos;Converted&apos;),ISBLANK( Payment_Received_Amount__c ),false) &amp;&amp; (Invoice_Date__c &gt; DATEVALUE(&quot;2021-03-31&quot;))</errorConditionFormula>
+    <errorDisplayField>Payment_Received_Amount__c</errorDisplayField>
+    <errorMessage>Please fill payment Received Amount before change stage to Converted</errorMessage>
+</ValidationRule>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_Month_Achievement__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( Current_Month__c = 1 ,  January_Total_Achieve__c , 
+ IF( Current_Month__c = 2 ,  February_Total_Achieve__c ,
+  IF( Current_Month__c = 3 ,  March_Total_Achieve__c , 
+ IF( Current_Month__c = 4 ,  April_Total_Achieve__c , 
+ IF( Current_Month__c = 5 ,  May_Total_Achieve__c , 
+ IF( Current_Month__c = 6 ,  June_Total_Achieve__c ,
+  IF( Current_Month__c = 7 ,  July_Total_Achieve__c , 
+ IF( Current_Month__c = 8 ,  August_Total_Achieve__c ,
+ IF( Current_Month__c = 9 ,  September_Total_Achieve__c , 
+IF( Current_Month__c = 10 ,  October_Total_Achieve__c ,
+ IF( Current_Month__c = 11 ,  November_Total_Achieve__c , 
+IF( Current_Month__c = 12 ,  December_Total_Achieve__c , 
+0))))) ) ) ) ) ) ) )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Current Month Achievement</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

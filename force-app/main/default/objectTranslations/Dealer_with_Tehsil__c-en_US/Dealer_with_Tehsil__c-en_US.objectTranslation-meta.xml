@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Dealer with Tehsil</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Dealer with Tehsils</value>
+    </caseValues>
+    <layouts>
+        <layout>Dealer with Tehsil Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Targets And Achievement</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

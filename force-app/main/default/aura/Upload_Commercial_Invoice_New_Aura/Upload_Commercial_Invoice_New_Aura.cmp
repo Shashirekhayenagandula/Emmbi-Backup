@@ -1,0 +1,4 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,lightning:actionOverride,lightning:isUrlAddressable,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:handler name="change" value="{!v.pageReference}" action="{!c.handleChange}"/>
+    <c:uploadCommercialInvoice recordId="{!v.recordId}"/>
+</aura:component>

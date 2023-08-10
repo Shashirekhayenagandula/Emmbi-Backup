@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Close_complaints_needs_closing_remarks</fullName>
+    <active>true</active>
+    <description>Checks that there is some closed remarks filled out when closing a complaint.</description>
+    <errorConditionFormula>IF( ISPICKVAL( Stages__c , &apos;Closed without OTP&apos;),  ISBLANK(CompletedRemarks__c),false )</errorConditionFormula>
+    <errorDisplayField>CompletedRemarks__c</errorDisplayField>
+    <errorMessage>Fill out completed remarks before closing complaint.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dealer_Distributor_Required</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(
+OR(
+ISPICKVAL( Opportunity_Stage__c, &apos;Interested&apos;),
+ISPICKVAL( Opportunity_Stage__c, &apos;Converted&apos;)
+),
+AND(ISBLANK(Dealer__c),ISBLANK(Distributor__c)),
+FALSE
+)</errorConditionFormula>
+    <errorMessage>Please fill out the Dealer and Distributor for the product.</errorMessage>
+</ValidationRule>

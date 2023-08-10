@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quarterly_Targets__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( Tehsil_Name__r.Month_Number__c = 1,   Tehsil_Name__r.Forth_Quarter_Target__c   ,
+
+IF(Tehsil_Name__r.Month_Number__c = 2, Tehsil_Name__r.Forth_Quarter_Target__c ,
+
+IF(Tehsil_Name__r.Month_Number__c = 3, Tehsil_Name__r.Forth_Quarter_Target__c ,
+
+IF(Tehsil_Name__r.Month_Number__c = 4,Tehsil_Name__r.First_Quarter_Target__c,
+
+IF(Tehsil_Name__r.Month_Number__c = 5,Tehsil_Name__r.First_Quarter_Target__c ,
+
+IF(Tehsil_Name__r.Month_Number__c = 6,Tehsil_Name__r.First_Quarter_Target__c ,
+
+IF(Tehsil_Name__r.Month_Number__c = 7,  Tehsil_Name__r.Second_Quarter_Target__c  ,
+
+IF(Tehsil_Name__r.Month_Number__c = 8, Tehsil_Name__r.Second_Quarter_Target__c,
+
+IF(Tehsil_Name__r.Month_Number__c = 9, Tehsil_Name__r.Second_Quarter_Target__c,
+
+IF(Tehsil_Name__r.Month_Number__c = 10,  Tehsil_Name__r.Third_Quarter_Target__c  ,
+
+IF(Tehsil_Name__r.Month_Number__c = 11,Tehsil_Name__r.Third_Quarter_Target__c,
+
+IF(Tehsil_Name__r.Month_Number__c = 12, Tehsil_Name__r.Third_Quarter_Target__c, 0) ) ) ) ) ) ) ) ) ) ) )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Quarterly Targets</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

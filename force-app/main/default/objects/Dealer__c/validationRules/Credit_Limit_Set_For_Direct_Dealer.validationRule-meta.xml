@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Limit_Set_For_Direct_Dealer</fullName>
+    <active>true</active>
+    <errorConditionFormula>Active__c 
+&amp;&amp;
+Distributor__r.Id = &quot;a032w00000FcumH&quot;
+&amp;&amp;
+ISBLANK(Credit_Limit__c)</errorConditionFormula>
+    <errorDisplayField>Credit_Limit__c</errorDisplayField>
+    <errorMessage>Credit Limit must be set for Direct Dealers</errorMessage>
+</ValidationRule>

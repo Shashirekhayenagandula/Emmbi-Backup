@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lot_No_Layout</fullName>
+    <fields>Name</fields>
+    <fields>Add_Product__c</fields>
+    <fields>Add_Supplier__c</fields>
+    <fields>Date__c</fields>
+    <fields>Quantity__c</fields>
+    <label>Lot No Layout</label>
+</CompactLayout>

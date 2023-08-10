@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Type_Of_Visit__c</fullName>
+    <externalId>false</externalId>
+    <label>Type Of Visit</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>New Farmer / Pond Visit</fullName>
+                <default>false</default>
+                <label>New Farmer / Pond Visit</label>
+            </value>
+            <value>
+                <fullName>Current Customer Visit</fullName>
+                <default>false</default>
+                <label>Current Customer Visit</label>
+            </value>
+            <value>
+                <fullName>Dealer / Distributor Visit</fullName>
+                <default>false</default>
+                <label>Dealer / Distributor Visit</label>
+            </value>
+            <value>
+                <fullName>Complaint Visit</fullName>
+                <default>false</default>
+                <label>Complaint Visit</label>
+            </value>
+            <value>
+                <fullName>Govt. Official Visit</fullName>
+                <default>false</default>
+                <label>Govt. Official Visit</label>
+            </value>
+            <value>
+                <fullName>Group Visit</fullName>
+                <default>false</default>
+                <label>Group Visit</label>
+            </value>
+            <value>
+                <fullName>Other Visit</fullName>
+                <default>false</default>
+                <label>Other Visit</label>
+            </value>
+            <value>
+                <fullName>Problem Visit</fullName>
+                <default>false</default>
+                <label>Problem Visit</label>
+            </value>
+            <value>
+                <fullName>Routine Visit</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Routine Visit</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PriceBook_should_be_selected</fullName>
+    <active>true</active>
+    <description>While submitting the Dispatch for approvals, PriceBook value should always be filled out.</description>
+    <errorConditionFormula>DATEVALUE(CreatedDate) &gt; DATEVALUE(&quot;2022-07-17&quot;)
+&amp;&amp;
+(
+  ISPICKVAL( Status__c , &apos;Advance Approval&apos;) ||
+  ISPICKVAL( Status__c , &apos;Exec Approval&apos;) ||
+  ISPICKVAL( Status__c , &apos;Hold&apos;) ||
+  ISPICKVAL( Status__c , &apos;Invoice&apos;) ||
+  ISPICKVAL( Status__c , &apos;Warranty&apos;) ||
+  ISPICKVAL( Status__c , &apos;Final Pay&apos;) ||
+  ISPICKVAL( Status__c , &apos;Completed&apos;)
+) 
+&amp;&amp;
+ISBLANK( PriceBook__c )</errorConditionFormula>
+    <errorDisplayField>PriceBook__c</errorDisplayField>
+    <errorMessage>PriceBook must be filled out.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,205 @@
+<apex:page readOnly="true"
+             
+           controller="RetailOrderPdfController" 
+           applyHtmlTag="false"    
+           sidebar="false"    
+           showHeader="false"    
+           cache="true"   
+           renderAs="advanced_pdf" 
+           docType="html-5.0">
+    <head>    
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />    
+        <style type="text/css">
+            @page {
+            size: A4 landscape;    
+            border: 1px solid black;    
+            padding-left: 5px;    
+            padding-right: 5px;  
+            font-family: Arial, Helvetica, sans-serif;  
+            @bottom-center {
+            content: "Page " counter(page) " of " counter(pages);
+            }
+            }
+            body {
+            font-family: Arial, sans-serif;
+            }
+            
+            .styled-table1 {
+            width:100%;
+            border-collapse: collapse;
+            }
+            
+            .styled-table1 th {
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            padding: 8px;
+            }
+            .styled-table1 tr {
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            padding: 8px;
+            }
+            .styled-table1 td {
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            padding: 8px;
+            }
+            .styled-table2 {
+            width:100%;
+            border-collapse: collapse;
+            }
+           
+            .styled-table2 th, .styled-table2 td {
+                border: 0;
+                padding: 6px;
+             text-align:right;
+            }
+       
+            .styled-table3 {
+            width:100%;
+            border-collapse: collapse;
+            }
+            
+            .styled-table3 th, .styled-table3 tr, .styled-table3 td {
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            padding: 8px;
+            }
+           
+             .styled-table4 {
+            width:100%;
+            border-collapse: collapse;
+            }
+           
+            .styled-table4 th, .styled-table2 td {
+               
+                padding: 6px;
+             
+            }
+            
+        </style>    
+    </head>    
+    <div>
+        <div style="float:left;font-size:25px">
+            <h1>{!retailOrder.Retail_Customer__r.Shop_Name__c}</h1>
+            <h3>{!retailOrder.Retail_Customer__r.Taluka__r.Name}, {!retailOrder.Retail_Customer__r.District__r.Name}</h3>
+        </div>
+        <div style="float:right">
+            <apex:image id="noLogo" value="{!$Resource.AvanaLogo}" width="300" height="150"  />
+        </div>
+    </div>
+    <div  style="margin-top:200px;">
+        <table class="styled-table1">
+            <tr>
+                <th style="width:15%;">Sales Owner</th>
+               <!-- <td>{!retailOrder.Sales_Owner__c}</td>-->
+                <td style="width:30%;">{!retailOrder.Retail_Customer__r.Name__c}</td>
+                <th>Order ID</th>
+                <td>{!retailOrder.Name}</td>
+                <th>Net Total</th>
+                <td>{!retailOrder.Net_Total__c}</td>
+            </tr>
+        </table>
+    </div>
+    <div style="float:right;padding-top:3%">
+        <table class="styled-table2">
+            <tr>
+                <th >Order Date</th>
+                <th>:</th>
+                <td><apex:outputText value="{0,date,d-MMM-yy}"> <apex:param value="{!retailOrder.Order_Date__c}" /> </apex:outputText></td>
+            </tr>
+            <tr>
+                <th >Freight Charge Bearer</th>
+                <th>:</th>
+                <td>{!retailOrder.Freight_Charge_Bearer_values__c}</td>
+            </tr>
+            <tr>
+                <th>Expected Delivery Date</th>
+                <th>:</th>
+                <td><apex:outputText value="{0,date,d-MMM-yy}"> <apex:param value="{!retailOrder.Expected_Delivery_Date_Customer__c}" /> </apex:outputText></td>
+            </tr>
+            <tr>
+                <th >Dispatch Warehouse</th>
+                <th>:</th>
+                <td>{!retailOrder.Dispatch_Warehouse__r.Name}</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div  style="padding-top:17%">
+        <table class="styled-table3" style="width:100%">
+           
+            <tr>
+                <th style="width:2%;">S.No.</th>
+                <th style="width:30%;">Products</th>
+                <th style="width:15%">Hole Type</th>
+                <th style="width:5%">Quantity</th>
+                <th style="width:4%">Unit Price</th>
+                <th style="width:14%">Sub Total</th>
+                <th style="width:10%">Product Discount</th>
+                <th style="width:15%">Net Total for Products</th>
+            </tr>
+             <apex:variable value="{!1}" var="count" />
+                            <apex:repeat value="{!retailOrderList}" var="ord" >
+                                <tr>
+                                    <td style="width:2%;">{!count}<apex:variable value="{!count+1}" var="count" /> </td>
+                                    <td style="width:30%;"><apex:outputField value="{!ord.Product__r.Product_Name__c}"/></td>
+                                    <td style="width:15%"><apex:outputField value="{!ord.HoleType__c}"/></td>
+                                    <td style="width:4%"><apex:outputField value="{!ord.Quantity__c}"/></td>
+                                    <td style="width:5%"><apex:outputField value="{!ord.Unit_Price__c}"/></td>
+                                    <td style="width:14%"><apex:outputField value="{!ord.Sub_Total__c}"/></td>
+                                    <td style="width:10%"><apex:outputField value="{!ord.Product_Discount__c}"/></td>
+                                    <td style="width:15%"><apex:outputField value="{!ord.Net_Total_for_Product__c}"/></td>
+                                </tr>
+                            </apex:repeat>
+        </table>
+    </div>
+    <div style="margin-top:2%">
+        <div style="float:left;">
+            <table class="styled-table4">
+                <tr>
+                    <th>Advance</th>
+                    <th>:</th>
+                    <td>{!retailOrder.Advance__c}</td>
+                </tr>
+                <tr>
+                    <th>Cash on Delivery</th>
+                    <th>:</th>
+                    <td>{!retailOrder.Cash_on_Delivery__c}</td>
+                </tr>
+                <tr>
+                    <th>Credit</th>
+                    <th>:</th>
+                    <td>{!retailOrder.Credit__c}</td>
+                </tr>
+                
+            </table>
+        </div>
+        <div style="float:right;">
+            <table class="styled-table2">
+                <tr>
+                    <th>Sub Total</th>
+                    <th>:</th>
+                    <td>{!retailOrder.Sub_Total__c}</td>
+                </tr>
+                <tr>
+                    <th>Order Discount</th>
+                    <th>:</th>
+                    <td>{!retailOrder.Order_Discount__c}</td>
+                </tr>
+                <tr>
+                    <th>Net Amount</th>
+                    <th>:</th>
+                    <td>{!retailOrder.Net_Total__c}</td>
+                </tr>
+                
+            </table>
+        </div>
+        
+    </div>
+    <div style="padding-left:5px;margin-top:10%">
+            <b>Comments:</b>{!retailOrder.Comments__c}
+        <hr/>
+        <center><b>Notes:</b>  For any queries, please contact Priyanka Deo at (+91)9321571549.</center>
+        </div>
+</apex:page>

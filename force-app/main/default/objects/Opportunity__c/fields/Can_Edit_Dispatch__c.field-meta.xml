@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Can_Edit_Dispatch__c</fullName>
+    <description>Can only edit (add/remove/change) the dispatch associated with this Product Information if that Dispatch is in the &apos;Submit for Approval&apos; stage. This is so that the dispatch cannot be changed after some approvals have been given.</description>
+    <externalId>false</externalId>
+    <formula>NOT(ISBLANK(Dispatch_Detail__c)) &amp;&amp; ISPICKVAL(Dispatch_Detail__r.Status__c,&apos;Submit For Approval&apos;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Can Edit Dispatch</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

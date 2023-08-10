@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Commercial_Ready_For_Dispatch</fullName>
+    <columns>NAME</columns>
+    <columns>Sales_Owner__c</columns>
+    <columns>Retail_Customer__c</columns>
+    <columns>Order_Date__c</columns>
+    <columns>Expected_Delivery_Date_Customer__c</columns>
+    <columns>Dispatch_Warehouse__c</columns>
+    <columns>Retail_Warehouse__c</columns>
+    <columns>IsFinalPay__c</columns>
+    <columns>Invoice_Upload_Date__c</columns>
+    <columns>Status__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Ready For Dispatch</value>
+    </filters>
+    <label>Commercial : Ready For Dispatch</label>
+    <sharedTo>
+        <group>Commercial</group>
+    </sharedTo>
+</ListView>

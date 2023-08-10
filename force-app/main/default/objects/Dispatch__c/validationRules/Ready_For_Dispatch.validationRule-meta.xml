@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ready_For_Dispatch</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(
+OR(
+ISPICKVAL( Status__c , &apos;Warranty&apos;),
+ISPICKVAL( Status__c , &apos;Final Pay&apos;),
+ISPICKVAL( Status__c , &apos;Completed&apos;)
+), NOT( Ready_for_Dispatch__c = True ),false)</errorConditionFormula>
+    <errorDisplayField>Ready_for_Dispatch__c</errorDisplayField>
+    <errorMessage>Please tick mark the field &apos;Ready For Dispatch?&apos;</errorMessage>
+</ValidationRule>

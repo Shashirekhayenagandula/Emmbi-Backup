@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Complaints</fullName>
+    <columns>NAME</columns>
+    <columns>Farmer_Name__c</columns>
+    <columns>Quality_Inspector_Name__c</columns>
+    <columns>Complaint_Type_New__c</columns>
+    <columns>Stages__c</columns>
+    <columns>Urgent__c</columns>
+    <columns>Follow_up_Date__c</columns>
+    <columns>Inactive_Date__c</columns>
+    <columns>Inactive_Due_To__c</columns>
+    <columns>Complaint_Closed_Date__c</columns>
+    <filterScope>Mine</filterScope>
+    <label>My Complaints</label>
+</ListView>

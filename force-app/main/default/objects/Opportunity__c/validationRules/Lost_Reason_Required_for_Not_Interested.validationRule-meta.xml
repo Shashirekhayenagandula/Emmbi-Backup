@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lost_Reason_Required_for_Not_Interested</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF( ISPICKVAL( Opportunity_Stage__c ,&apos;Not Interested&apos;) , ISPICKVAL( Opportunity_Lost_to__c,&apos;&apos;) ,false)</errorConditionFormula>
+    <errorDisplayField>Opportunity_Lost_to__c</errorDisplayField>
+    <errorMessage>Please enter &apos;Sale lost Reason&apos; for not interested farmer.</errorMessage>
+</ValidationRule>

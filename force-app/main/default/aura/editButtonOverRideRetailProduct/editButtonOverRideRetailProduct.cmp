@@ -1,0 +1,5 @@
+<aura:component  implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction,lightning:actionOverride,lightning:isUrlAddressable" access="global" >
+     <aura:handler name="change" value="{!v.pageReference}" action="{!c.handleChange}"/>
+    <aura:handler name="change" value="{!v.pageReference}" action="{!c.reInit}" />
+    <c:editOverrideRetailProduct recordId="{!v.recordId}"/>
+</aura:component>

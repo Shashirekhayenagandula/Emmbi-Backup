@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Activity_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Activity Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Individual Meeting</fullName>
+                <default>false</default>
+                <label>Individual Meeting</label>
+            </value>
+            <value>
+                <fullName>Group Meeting</fullName>
+                <default>false</default>
+                <label>Group Meeting</label>
+            </value>
+            <value>
+                <fullName>Pond Visit</fullName>
+                <default>false</default>
+                <label>Pond Visit</label>
+            </value>
+            <value>
+                <fullName>Testimonial Videos / Photos</fullName>
+                <default>false</default>
+                <label>Testimonial Videos / Photos</label>
+            </value>
+            <value>
+                <fullName>Bazar Days</fullName>
+                <default>false</default>
+                <label>Bazar Days</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

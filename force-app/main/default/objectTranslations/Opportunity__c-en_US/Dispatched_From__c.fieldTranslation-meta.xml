@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label></label>
+    <name>Dispatched_From__c</name>
+    <picklistValues>
+        <masterLabel>Aurangabad (MH) Warehouse</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Nashik (MH) Warehouse</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Pune (MH) Warehouse</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Silvassa Factory</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Sri Ganganagar (RJ) Warehouse</masterLabel>
+        <translation></translation>
+    </picklistValues>
+</CustomFieldTranslation>

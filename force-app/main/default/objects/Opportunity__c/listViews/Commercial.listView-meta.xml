@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Commercial</fullName>
+    <columns>NAME</columns>
+    <columns>Lead__c</columns>
+    <columns>Farmer_Name__c</columns>
+    <columns>Opportunity_Stage__c</columns>
+    <columns>Tehsil__c</columns>
+    <columns>District__c</columns>
+    <columns>Jalasanchay_Product_Type__c</columns>
+    <columns>OWNER.ALIAS</columns>
+    <columns>Pondliner_Size_Requested_Required_Sq_Mt__c</columns>
+    <columns>Follow_up_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Invoice_Number__c</field>
+        <operation>equals</operation>
+    </filters>
+    <label>Commercial</label>
+    <sharedTo>
+        <group>Commercial_Group</group>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Convert_From_Convert_Button</fullName>
+    <active>false</active>
+    <description>Manually Can&apos;t Change Convert Stage. Only Convert Button Can Change the Stage to Convert</description>
+    <errorConditionFormula>AND(ISCHANGED( Stages__c),ISPICKVAL(Stages__c,&apos;Converted&apos;), IsConverted__c  = false)</errorConditionFormula>
+    <errorMessage>Please Use The Convert Button To Convert The Stage</errorMessage>
+</ValidationRule>

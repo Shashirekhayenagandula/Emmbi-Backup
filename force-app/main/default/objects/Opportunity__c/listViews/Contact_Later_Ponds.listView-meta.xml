@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contact_Later_Ponds</fullName>
+    <columns>NAME</columns>
+    <columns>Lead__c</columns>
+    <columns>Farmer_Name__c</columns>
+    <columns>Follow_up_Date__c</columns>
+    <columns>Tehsil__c</columns>
+    <columns>District__c</columns>
+    <columns>OWNER.ALIAS</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Opportunity_Stage__c</field>
+        <operation>equals</operation>
+        <value>Contact Later</value>
+    </filters>
+    <label>Contact Later</label>
+    <sharedTo>
+        <group>HO_Sales_Group</group>
+        <group>Sales_Group</group>
+    </sharedTo>
+</ListView>

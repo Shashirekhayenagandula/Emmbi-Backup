@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This flow is used to update order status fiels Ready to dispatch when Upload commercial invoice is created</description>
+    <interviewLabel>update Order status field to ready to dispatch {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>update Order status field to ready to dispatch</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_order_status_field</name>
+        <label>Update order status field</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Select_Order__r.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Ready For Dispatch</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Retail_Order__c</object>
+    </recordUpdates>
+    <startElementReference>Update_order_status_field</startElementReference>
+    <status>Active</status>
+</Flow>

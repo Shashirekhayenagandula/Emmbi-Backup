@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Seller_Name__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>The Avana Retail customer/customers from which this lead is purchasing Avana Retail  products</inlineHelpText>
+    <label>Seller Name</label>
+    <referenceTo>Retail_Customer__c</referenceTo>
+    <relationshipLabel>Retail Leads</relationshipLabel>
+    <relationshipName>Retail_Leads</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

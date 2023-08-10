@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sq_m_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISPICKVAL(Status__c, &apos;Advance Approval&apos;) &amp;&amp;  (Dispatch_Total_Sq_mtr__c = 0 || ISBLANK(Dispatch_Total_Sq_mtr__c))</errorConditionFormula>
+    <errorMessage>Please add Products to this dispatch!</errorMessage>
+</ValidationRule>

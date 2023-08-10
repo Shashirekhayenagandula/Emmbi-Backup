@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Complaint_Type_New__c</fullName>
+    <externalId>false</externalId>
+    <label>Complaint Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Underwater leakage</fullName>
+                <default>false</default>
+                <label>Underwater leakage</label>
+            </value>
+            <value>
+                <fullName>Operator joint problem</fullName>
+                <default>false</default>
+                <label>Operator joint problem</label>
+            </value>
+            <value>
+                <fullName>Company joint problem</fullName>
+                <default>false</default>
+                <label>Company joint problem</label>
+            </value>
+            <value>
+                <fullName>Bubbles in lamination</fullName>
+                <default>false</default>
+                <label>Bubbles in lamination</label>
+            </value>
+            <value>
+                <fullName>Lamination/Coating problem</fullName>
+                <default>false</default>
+                <label>Lamination/Coating problem</label>
+            </value>
+            <value>
+                <fullName>Fabric fallen into pond</fullName>
+                <default>false</default>
+                <label>Fabric fallen into pond</label>
+            </value>
+            <value>
+                <fullName>Holes/tears in fabric</fullName>
+                <default>false</default>
+                <label>Holes/tears in fabric</label>
+            </value>
+            <value>
+                <fullName>Fabric shortage</fullName>
+                <default>false</default>
+                <label>Fabric shortage</label>
+            </value>
+            <value>
+                <fullName>Stones problem</fullName>
+                <default>false</default>
+                <label>Stones problem</label>
+            </value>
+            <value>
+                <fullName>Fire problem</fullName>
+                <default>false</default>
+                <label>Fire problem</label>
+            </value>
+            <value>
+                <fullName>Animals problem</fullName>
+                <default>false</default>
+                <label>Animals problem</label>
+            </value>
+            <value>
+                <fullName>Colour mismatch</fullName>
+                <default>false</default>
+                <label>Colour mismatch</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

@@ -1,0 +1,139 @@
+<apex:page standardController="Opportunity__c" extensions="PdfClass" renderAs="{!IF(Opportunity__c.Customer__c==null || PreConVrsnList.size==0 || PostConVrsnList.size==0 || PreConVrsnList.size==null || PostConVrsnList.size==null, '', 'pdf') }"  >
+    <apex:form >
+        <apex:pageBlock rendered="{!ISBLANK(Opportunity__c.Customer__c)}">
+            <center><P><b style="font-size:32px; color: #696969;">Please Convert The Lead To Customer</b></P></center><br/>
+            <center><b><apex:commandButton value="Back" action="{!goBack}"  styleClass="slds-button slds-button_neutral"/></b></center>
+        </apex:pageBlock> 
+        <apex:pageBlock rendered="{!NOT(ISBLANK(Opportunity__c.Customer__c)) && (PreConVrsnList.size==0 || PostConVrsnList.size==0 || PreConVrsnList.size==null || PostConVrsnList.size==null)}">
+            <center><P><b style="font-size:32px; color: #696969;">Please Upload Both PreImage And PostImage.</b></P></center><br/>
+            <center><b><apex:commandButton value="Back" action="{!goBack}"  styleClass="slds-button slds-button_neutral"/></b></center>
+        </apex:pageBlock> 
+        <apex:pageBlock rendered="{!NOT(ISBLANK(Opportunity__c.Customer__c)) && PreConVrsnList.size==1 && PostConVrsnList.size==1 }"> 
+            <apex:image url="{!$Resource.AvanaLogo}" height="80" width="200"/>
+            <center><div style="font-size:32px; color: #008CBA;"><b>Warranty Information Form</b></div></center>
+            <div style="width:1080px;height:auto;margin-left:0px;">
+                <table style="width:100%;border-spacing: 0;table-layout: fixed; padding:1px; font-size:16px;">
+                    <thead>
+                        <tr>
+                            <th width="15%"></th>
+                            <th width="30%"></th>
+                            <th width="10%"></th>
+                            <th width="45%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td><b>Farmer Name</b></td>
+                            <td colspan="3">:&nbsp;&nbsp;&nbsp;&nbsp;{!enlist[0].Customer__r.Farmer_First_Name__c}&nbsp;{!enlist[0].Customer__r.Farmer_Middle_Name__c}&nbsp;{!enlist[0].Customer__r.Name}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Address</b></td>
+                            <td colspan="3">:&nbsp;&nbsp;&nbsp;&nbsp;{!enlist[0].Customer__r.Address__c}</td>
+                        </tr>
+                        <tr>
+                            <td><b>State</b></td>
+                            <td colspan="3">:&nbsp;&nbsp;&nbsp;&nbsp;{!enlist[0].Customer__r.State__c}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Tehsil</b></td>
+                            <td colspan="3">:&nbsp;&nbsp;&nbsp;&nbsp;{!enlist[0].Customer__r.Tehsil__r.Name}</td>
+                        </tr>
+                        <tr>
+                            <td><b>District</b></td>
+                            <td colspan="3">:&nbsp;&nbsp;&nbsp;&nbsp;{!enlist[0].Customer__r.District__c}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Pin Code</b></td>
+                            <td colspan="3">:&nbsp;&nbsp;&nbsp;&nbsp;{!enlist[0].Customer__r.Pin_Code__c}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Mobile Number</b></td>
+                            <td>:&nbsp;&nbsp;&nbsp;&nbsp;1)&nbsp;{!enlist[0].Customer__r.Phone}</td>
+                            <td colspan="2">2)&nbsp;{!enlist[0].Customer__r.Alternate_Mobile_No__c}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Aadhar Card No</b></td>
+                            <td colspan="3">:&nbsp;&nbsp;&nbsp;&nbsp;{!enlist[0].Customer__r.Aadhar_Number__c}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Product Type</b></td>
+                            <td colspan="3">:&nbsp;&nbsp;&nbsp;&nbsp;{!Opportunity__c.Product_Name__c}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Size of the Pond</b></td>
+                            <td colspan="3">:&nbsp;&nbsp;&nbsp;&nbsp;{!enlist[0].Pond_Size_Sq_Mtr__c}&nbsp;&nbsp;LxWxH / Top size LxW</td>
+                        </tr>
+                        <tr>
+                            <td><b>Qty</b></td>
+                            <td colspan="3">:&nbsp;&nbsp;&nbsp;&nbsp;{!enlist[0].Pondliner_Size_Requested_Required_Sq_Mt__c}&nbsp;&nbsp;sq/meter</td>
+                        </tr>
+                        <tr>
+                            <td><b>Distributor Name</b></td>
+                            <td colspan="3">:&nbsp;&nbsp;&nbsp;&nbsp;{!enlist[0].Customer__r.Distributor__c}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Dealer Name</b></td>
+                            <td colspan="3">:&nbsp;&nbsp;&nbsp;&nbsp;{!enlist[0].Customer__r.Dealer__r.Name}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Invoice Done</b></td>
+                            <td colspan="3">:&nbsp;&nbsp;&nbsp;&nbsp;<apex:outputText value="{!IF(Opportunity__c.Invoice_done__c==true, 'YES', 'NO') }"/></td>
+                        </tr>
+                        <tr>
+                            <td><b>Invoice Date</b></td>
+                            <td colspan="3">:&nbsp;&nbsp;&nbsp;&nbsp;<apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!Opportunity__c.Invoice_Date__c}" /></apex:outputText></td>
+                        </tr>
+                        <tr>
+                            <td><b>Quality Person</b></td>
+                            <td colspan="3">:&nbsp;&nbsp;&nbsp;&nbsp;{!Opportunity__c.Quality_person__r.Name}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Pre Visit Date</b></td>
+                            <td>:&nbsp;&nbsp;&nbsp;&nbsp;<apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!Opportunity__c.Pre_Visit_Date__c}" /></apex:outputText></td>
+                            <td><b>Visit By</b></td>
+                            <td>:&nbsp;{!Opportunity__c.Pre_Visit_Done_By__r.Name}</td>
+                        </tr>
+                        <tr>
+                            <!--<td colspan="2"></td>-->
+                            <td><b>Remarks</b></td>
+                            <td colspan="3">:&nbsp;&nbsp;&nbsp;&nbsp;{!Opportunity__c.Pre_Visit_Remarks__c}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Pre Installation Photo</b></td>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <!--<apex:repeat value="{!FileIds}" var="cod">
+                                <apex:image url="/sfc/servlet.shepherd/version/download/{!cod}" rendered="{!IF(CONTAINS(cod.title,"PreImage"), true, false)}" width="250" height="160"/>
+                                </apex:repeat>-->
+                                <apex:image url="/sfc/servlet.shepherd/version/download/{!PreConVrsnList[0].Id}" width="250" height="160"></apex:image>
+                            </td>
+                            <td><b>Installation Date</b></td>
+                            <td>:&nbsp;<apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!Opportunity__c.Installation_Date__c}" /></apex:outputText></td>
+                        </tr>
+                        <tr>
+                            <td><b>Operator Name</b></td>
+                            <td colspan="3">:&nbsp;&nbsp;&nbsp;&nbsp;{!Opportunity__c.Name_of_Operator__c}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Post Installation Photo</b></td>
+                            <td colspan="3">&nbsp;&nbsp;&nbsp;&nbsp;
+                                <!--<apex:repeat value="{!FileIds}" var="cod">
+                                <apex:image url="/sfc/servlet.shepherd/version/download/{!cod.Id}" rendered="{!IF(CONTAINS(cod.title,"PostImage"), true, false)}" width="250" height="160"/>
+                                </apex:repeat>-->
+                                <apex:image url="/sfc/servlet.shepherd/version/download/{!PostConVrsnList[0].Id}" width="250" height="160"></apex:image>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>Certificate Valid Till</b></td>
+                            <td colspan="3">:&nbsp;&nbsp;&nbsp;&nbsp;<apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!Opportunity__c.Certificate_Valid_Till__c}" /></apex:outputText></td>
+                        </tr>
+                        <tr>
+                            <td><b>Farmer Feedback</b></td>
+                            <td colspan="3">:&nbsp;&nbsp;&nbsp;&nbsp;{!Opportunity__c.Farmer_feedback__c}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </apex:pageBlock>   
+    </apex:form>
+</apex:page>

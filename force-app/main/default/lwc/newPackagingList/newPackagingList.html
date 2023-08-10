@@ -1,0 +1,261 @@
+<template>
+	<section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open slds-modal_large">
+		<div class="slds-modal__container">
+			<button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={handleCancel}>
+                <lightning-icon icon-name="utility:close"
+                alternative-text="close"
+                variant="inverse"
+                size="small" 
+                ></lightning-icon>
+            <span class="slds-assistive-text">Cancel and close</span>
+        </button>
+		<div class="slds-modal__header">
+		<h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">New Retail Packaging List</h1>
+		</div>
+		<div class="slds-modal__content" id="modal-content-id-1">
+			<lightning-card title="Add Packing List" icon-name="Standard:orders">
+				<lightning-layout>
+					<lightning-layout-item size="6" class="layout1">
+
+                        <c-custom-lookup-packaging
+                            label="Supervisor"
+                            placeholder="Search for Supervisor"
+                            options={supervisorOptions}
+                            selected-value={supervisorId}
+                            onselection={handleSupervisorSelection}
+                            isrecent={isRecent}
+                        ></c-custom-lookup-packaging>
+						<!-- <lightning-input class={inputClass} type="search" label="Supervisor" placeholder={selectPlaceholder}
+							value={searchTerm} name="supervisor" onclick={handleClick} autocomplete="false">
+						</lightning-input> -->
+						<lightning-radio-group name="radioGroup"
+							label="Complete"
+							options={options} onchange={onchangeComplete}
+							value={completeValues}
+							type="radio">							
+						</lightning-radio-group>
+
+						<lightning-input type="text" label="Invoice No." name="invoice" onchange={handleChange}>
+						</lightning-input>
+						<lightning-input type="text" label="Address" onchange={handleChange} value={address} disabled>
+						</lightning-input>
+						<lightning-input type="date" name="date" label="Dispatch Date" value={dateValue} required="true" onchange={handleChange} disabled="true">
+						</lightning-input>
+					</lightning-layout-item>
+		
+					<lightning-layout-item size="6" class="layout2">
+                     	<lightning-combobox
+							label="Order Id"
+							options={approvedOrders}
+							value={selectedOrderId}
+							onchange={handleOrderChange}>
+						</lightning-combobox>
+						<lightning-input type="text" label="Add Customer" value={customer} disabled></lightning-input>
+                        <lightning-input type="text" label="Vehicle Number"	name="vehicleNo" onchange={handleChange}></lightning-input>						
+						<lightning-input type="text" label="Comments" name="comments" onchange={handleChange}></lightning-input>
+						<lightning-input type="time" name="time" label="Time" required="true" onchange={handleChange} value={timeValue} disabled></lightning-input>
+					</lightning-layout-item>
+				</lightning-layout></br>
+				<!-- <div class="slds-clearfix">
+					<div class="slds-align_absolute-center">
+						<lightning-button variant="Neutral" label="Cancel" class="slds-m-left_x-small"></lightning-button>
+						<lightning-button variant="brand" label="Save" class="slds-m-left_x-small" onclick={save}>
+						</lightning-button>
+					</div>
+				</div> -->
+			</lightning-card>
+            <lightning-card  if:true={selectedOrderId}  title="Add Bundle" icon-name="standard:code_set_bundle" size="medium">
+
+            <lightning-record-edit-form object-api-name="Retail_Bundle__c" data-id="BundleForm">
+                <lightning-messages></lightning-messages>
+                <div class="slds-scrollable_x" style="height:100%;">
+                    <div class="slds-m-around_medium">
+
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered"
+                            aria-labelledby="element-with-table-label other-element-with-table-label">
+                            <thead>
+                                <tr class="slds-line-height_reset">
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="QR Code"
+                                            style="width:120px;"><span
+                                            class="slds-text-color_destructive">*
+                                        </span>QR Code</div>
+                                    </th>
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="QR Code"
+                                            style="width:120px;"><span
+                                            class="slds-text-color_destructive">*
+                                        </span>Product</div>
+                                    </th>
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="Quantity" style="width:120px;">
+                                            <span class="slds-text-color_destructive">*
+                                            </span>Quantity
+                                        </div>
+                                    </th>
+                                    <!-- <th class="" scope="col">
+                                        <div class="slds-truncate" title="Order Product Quantity" style="width:120px;">
+                                            <span class="slds-text-color_destructive">*
+                                            </span>Order Product Quantity
+                                        </div>
+                                    </th> -->
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="Net Weight"
+                                            style="width:120px;"><span
+                                            class="slds-text-color_destructive">*
+                                        </span>Net Weight</div>
+                                    </th>
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="Tare Weight"
+                                            style="width:120px;"><span
+                                            class="slds-text-color_destructive">*
+                                        </span>Tare Weight</div>
+                                    </th>
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="Gross Weight"
+                                            style="width:120px;"><span
+                                            class="slds-text-color_destructive">*
+                                        </span>Gross Weight</div>
+                                    </th>
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="Remarks"
+                                            style="width:120px;">Remarks</div>
+                                    </th>
+                                    <th class="" scope="col">
+                                        <div class="slds-truncate" title="Get Lot No"
+                                            style="width:120px;">Get Lot No</div>
+                                    </th>
+                                    
+
+                                    <template if:false={deleteAction}>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Action">Action</div>
+                                        </th>
+                                    </template>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template for:each={inventories} for:item="bundle" for:index="index">
+                                    <tr key={bundle.id}>
+                                        <td scope="row">
+                                           
+                                                <lightning-formatted-rich-text  value={bundle.QR_Code__c} data-index={index}
+                                                data-name="qrCode"
+                                                onchange={onchangeQRCode} 
+                                                variant="label-hidden" ></lightning-formatted-rich-text>
+                                          
+                                           <lightning-input-field field-name="QR_Code__c"
+                                                value={bundle.QR_Code__c} data-index={index}
+                                                data-name="qrCode"
+                                                onchange={onchangeQRCode} 
+                                                variant="label-hidden" class={fieldHidden}>
+                                            </lightning-input-field>
+                                            </td>
+                                            <td scope="row">
+                                            
+                                                <lightning-input-field field-name="Add_Product__c"
+                                                    value={bundle.Add_Product__c} required
+                                                    variant="label-hidden" onchange={handleChangeProductName}
+                                                    data-index={index} data-name="productName" >
+                                                </lightning-input-field>
+                                            </td>
+
+                                            <!-- <div if:true={product.productComplete} class="slds-text-color_error slds-p-horizontal_x-small">
+                                           Please Select Product</div> -->
+                                     
+                                        <td scope="row">
+                                            
+                                            <lightning-input-field field-name="Quantity__c"
+                                                value={bundle.Quantity__c} required
+                                                variant="label-hidden" onchange={handleChangeInventoryQuantity}
+                                                data-index={index} data-name="quantity" >
+                                            </lightning-input-field>
+                                        </td>
+
+                                        <!-- <td scope="row">
+                                            <lightning-input-field field-name="Order_Product_Quantity__c"
+                                                value={bundle.Order_Product_Quantity__c} variant="label-hidden"
+                                                data-index={index} onchange={handleChangeInventoryOrderproductQuantity}
+                                                 data-name="orderProductQuantity">
+                                            </lightning-input-field>
+                                        </td> -->
+                                        <td scope="row">
+                                            <lightning-input-field field-name="Net_Weight__c"
+                                                value={bundle.Net_Weight__c} variant="label-hidden"
+                                                data-index={index} disabled onchange={handleChangeInventoryNetWeight}
+                                                data-name="netWeight">
+                                            </lightning-input-field>
+                                        </td>
+                                        <td scope="row">
+                                            <lightning-input-field field-name="Tare_Weight__c"
+                                                value={bundle.Tare_Weight__c} variant="label-hidden"
+                                                data-index={index} onchange={handleChangeInventoryTarWeight}
+                                                disabled data-name="tareWeight">
+                                            </lightning-input-field>
+                                        </td>
+                                        <td scope="row">
+                                            <lightning-input-field field-name="Gross_Weight__c"
+                                                value={bundle.Gross_Weight__c} required
+                                                onchange={handleChangeInventoryGrossWeight} variant="label-hidden"
+                                                data-index={index} disabled data-name="grossWeight">
+                                            </lightning-input-field>
+                                            <!-- <div if:true={isErrorQuantity} class="slds-text-color_error slds-p-horizontal_x-small" style="margin-left: 148px;margin-top:-10px;">
+                                                Please ensure Quantity is a multiple of Standard Packaging Size!</div> -->
+                                        </td>
+                                        <td scope="row">
+                                            <lightning-input-field field-name="Remarks__c"
+                                                value={bundle.Remarks__c} variant="label-hidden"
+                                                data-index={index} disabled onchange={handleChangeInventoryRemarks}
+                                                >
+                                            </lightning-input-field>
+                                        </td>
+                                        <td scope="row">
+                                            <lightning-input-field field-name="Get_Lot_No__c"
+                                                value={bundle.Get_Lot_No__c}
+                                                variant="label-hidden" disabled data-index={index}
+                                                onchange={handleChangeInventoryLotNo}>
+                                            </lightning-input-field>
+                                        </td>
+                                       
+                                        <template if:false={deleteAction}>
+                                            <td>
+                                                <lightning-icon icon-name="action:delete"
+                                                    alternative-text="Delete Row" size="small"
+                                                    title="Delete Row" onclick={removeRow}
+                                                    data-index={index}>
+                                                </lightning-icon>
+                                            </td>
+                                        </template>
+                                    </tr>
+                                </template>
+
+                            </tbody>
+                        </table>
+
+                        <div if:true={isErrorProduct}
+                            class="slds-text-color_error slds-p-horizontal_x-small">
+                            Please include product information</div>
+                    </div>
+                </div>
+                &nbsp;&nbsp;
+
+            </lightning-record-edit-form>
+           
+            &nbsp;&nbsp;
+            <lightning-button icon-name="action:new" variant="success" label="Add New" onclick={addRow}
+                class="margin-left"></lightning-button>
+
+            </lightning-card>
+       
+			
+		</div>
+		<div class="slds-modal__footer">
+		<div class="slds-align_absolute-center">
+            <lightning-button label="Cancel" onclick={handleCancel} variant="primary"></lightning-button>
+            <lightning-button onclick={validateError} disabled={saveBoolean} class ="slds-p-left_x-small" label="Save" variant="brand" ></lightning-button>
+        </div>
+		</div>
+		</div>
+		</section>
+		<div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+</template>

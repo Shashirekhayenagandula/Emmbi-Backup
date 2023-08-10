@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unreachable_calls_should_have_date</fullName>
+    <active>true</active>
+    <description>If call unreachable reason is filled out, then there should be a date for it. And vice versa.</description>
+    <errorConditionFormula>OR(AND(NOT(ISBLANK( TEXT(Call_Unreachable_1__c) )) , ISBLANK( Call_Unreachable_1_Date__c )),
+
+AND(ISBLANK( TEXT(Call_Unreachable_1__c )) , NOT(ISBLANK( Call_Unreachable_1_Date__c ))),
+
+AND(NOT(ISBLANK( TEXT(Call_Unreachable_2__c ))) , ISBLANK( Call_Unreachable_2_Date__c )),
+
+AND(ISBLANK( TEXT(Call_Unreachable_2__c )) , NOT(ISBLANK( Call_Unreachable_2_Date__c ))))</errorConditionFormula>
+    <errorDisplayField>Call_Unreachable_1__c</errorDisplayField>
+    <errorMessage>Both date and reason need to be filled out for unreachable call</errorMessage>
+</ValidationRule>

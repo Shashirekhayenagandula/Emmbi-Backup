@@ -1,0 +1,179 @@
+<template>
+    <lightning-record-edit-form record-id={recordId} object-api-name="Retail_Customer__c" onsuccess={handleSave} onsubmit={handleSubmit}>
+        <lightning-messages> </lightning-messages>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="customerHeader slds-modal__container">
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeQuickAction}>
+                            <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse" size="small" ></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button> 
+                        <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate slds-text-heading--medium">New Customer</h2>
+                    </header>
+                    <div class=" slds-modal__content" id="modal-content-id-1">
+                        <div class="matchInnerPadding"> 
+                        <p class="matchTitle slds-section__title slds-theme_shade matchTitleShade">Information</p>
+                        <lightning-layout multiple-rows="true" class="matchContent">
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                                <lightning-output-field field-name="OwnerId" class="slds-p-horizontal_x-small" disabled></lightning-output-field>  
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                                <lightning-input-field field-name="Date__c"  class="slds-p-horizontal_x-small" value={currentDate} disabled></lightning-input-field>  
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                                <lightning-input-field field-name="Link_Lead_ID__c" class="slds-p-horizontal_x-small" onchange={handleLeadChange} value={masterId}></lightning-input-field>  
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                                <lightning-input-field field-name="Customer_Type__c" onchange={onchangeCustomerType} value={customerTypeValue} class="slds-p-horizontal_x-small" required data-name="customerType" disabled></lightning-input-field>  
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                                <lightning-input-field field-name="Name__c" class="slds-p-horizontal_x-small" required></lightning-input-field>  
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                                <lightning-input-field field-name="Last_Name__c" class="slds-p-horizontal_x-small" required></lightning-input-field>  
+                            </lightning-layout-item>
+                          
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                                <lightning-input-field field-name="Billing_First_Name__c" class="slds-p-horizontal_x-small" required></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                                <lightning-input-field field-name="Billing_Last_Name__c" class="slds-p-horizontal_x-small" required></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-input-field field-name="Shop_Name__c" onchange={onchangeLeadShopName} class="slds-p-horizontal_x-small" value={shopName} required></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-input-field field-name="Shop_Address__c" class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-input-field field-name="Country_Code__c" class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6">
+                                <lightning-input-field field-name="Phone_Number__c" class="slds-p-horizontal_x-small" 
+                                    pattern="[0-9]{10}"
+                                    message-when-pattern-mismatch="Please enter a 10-digit phone number" dataname="phone" required onchange={onchangePhone} value={phonevalue}></lightning-input-field>
+                                    <div class="slds-grid slds-gutters">
+                                        <div class="slds-col slds-size_2-of-6 ">
+                                          
+                                        </div>
+                                        <div class="slds-col slds-size_4-of-6 ">
+                                            <div if:true={validatePhone} class="slds-text-color_error slds-p-horizontal_x-small" style="">
+                                                Please enter a 10-digit phone number</div>
+                
+                                                <div if:true={validateUniquePhone} class="slds-text-color_error slds-p-horizontal_x-small" style="">
+                                                    Please enter Unique Phone number</div>
+                                            </div>
+                                            </div>
+                                </lightning-layout-item>
+                            
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-input-field field-name="Email__c" class="slds-p-horizontal_x-small" onchange={onchangeEmail} value={emailValue}></lightning-input-field>
+                                
+                                        <div if:true={validateUniqueEmail} class="slds-text-color_error slds-p-horizontal_x-small" style="margin-left:140px; margin-top: -5px;">
+                                            Please enter Unique Email Address</div>
+                                 
+                                   
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6">
+                                <lightning-input-field field-name="GST_Number__c" class="slds-p-horizontal_x-small"
+                                    onchange={onchangeGSTnumber} value={GSTNumberValue}>
+                                </lightning-input-field>
+                            </lightning-layout-item>
+                             <div if:true={validateGST} class="slds-text-color_error" style="margin-left:590px; margin-top: -5px;">{errorMessage}</div>
+                          <!--<div if:true={validateGST} class="slds-text-color_error slds-p-horizontal_x-small" style="margin-left:580px; margin-top: -9px;">
+                                GST number must have 15 characters</div>-->
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-input-field field-name="PAN_Number__c"  onchange={onchangePanNumber} value={panNumberValue} class="slds-p-horizontal_x-small" ></lightning-input-field>
+                            </lightning-layout-item>
+                            <div if:true={validatePAN} class="slds-text-color_error slds-p-horizontal_x-small" style="margin-left:-300px; margin-top: 37px;">
+                                PAN number must have 10 characters!</div>
+                                </lightning-layout>
+                                <p class="matchTitle slds-section__title slds-theme_shade matchTitleShade">Address</p>
+                        <lightning-layout multiple-rows="true" class="matchContent">
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-input-field field-name="State__c" class="slds-p-horizontal_x-small" value={stateValue} disabled="true" required></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-input-field field-name="District__c" class="slds-p-horizontal_x-small" value={districtValue} disabled="true" required></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-input-field field-name="Taluka__c" class="slds-p-horizontal_x-small" value={talukaValue} disabled="true" required></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-input-field field-name="Village__c" value={villageValue} class="slds-p-horizontal_x-small" required></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-input-field field-name="Pin_code__c" onchange={onchangePincode} value={pincodeValue} pattern="[0-9]{10}" class="slds-p-horizontal_x-small" required></lightning-input-field>
+                            </lightning-layout-item>
+                            <div if:true={validatePin} class="slds-text-color_error slds-p-horizontal_x-small" style="margin-left:-300px; margin-top: 40px;">
+                                Pincode must be 6 digits long!</div>
+                           <!-- <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-input-field field-name="Returning_Customer__c" class="slds-p-horizontal_x-small" ></lightning-input-field>
+                            </lightning-layout-item>
+                          
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-input-field field-name="Order_Counter__c" class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>-->
+                        </lightning-layout>
+                        
+                            <p class="matchTitle slds-section__title slds-theme_shade matchTitleShade">Credit Limits</p>
+                            <lightning-layout  multiple-rows="true" class="matchContent">
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-input-field field-name="Assign_Credit_limit__c" class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-input-field field-name="Credit_Limit__c" class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-input-field field-name="Credit_Limit_Used__c" class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+                            
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-input-field field-name="Credit_Limit_Pending__c" class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-input-field field-name="Credit_Limit_Overshot__c" class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                            <lightning-layout  multiple-rows="true" class="matchContent">
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-output-field field-name="CreatedById" class="slds-p-horizontal_x-small"></lightning-output-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-output-field field-name="LastModifiedById" class="slds-p-horizontal_x-small"></lightning-output-field>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                        <!-- <template if:true={isDisplayHideFields}> --> <div style="display:none;">
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-input-field field-name="New_Customer__c" onchange={onchangeNewCustomer} value={customerNameChangeValue}  class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-input-field field-name="Order_Counter__c"  value={orderCounterValue}  class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-input-field field-name="Returning_Customer__c" value={returningCustomerValue}  class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-input-field field-name="Is_Previous_Payment_Pending__c"  value={isPreviousPaymentValue}  class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-input-field field-name="Blacklisted__c"  value={blacklistedValue}  class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-input-field field-name="Greylisted__c"  value={greyListedValue}  class="slds-p-horizontal_x-small"  style="display:none;"></lightning-input-field>
+                            </lightning-layout-item>
+                          
+                        </div>
+                        <!-- </template> -->
+
+                        <footer class="slds-modal__footer slds-text-align_center">
+                            <lightning-button label="Cancel" variant="neutral" onclick={closeQuickAction} style="margin:10px"></lightning-button> 
+                            <lightning-button variant="brand" type="submit" name="save" label="Save" disabled={saveBool}></lightning-button>
+                        </footer>
+                    </div>
+                    </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </lightning-record-edit-form>
+</template>

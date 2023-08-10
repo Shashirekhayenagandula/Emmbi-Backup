@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Monthly_Price_Update_Layout</fullName>
+    <fields>Name</fields>
+    <fields>Add_Product__c</fields>
+    <fields>Add_Warehouse__c</fields>
+    <fields>Date_Time__c</fields>
+    <fields>Price__c</fields>
+    <label>Monthly Price Update Layout</label>
+</CompactLayout>

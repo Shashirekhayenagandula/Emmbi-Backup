@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <email>management@emmbi.com</email>
+    <name>JS Dispatch Approvers</name>
+    <queueMembers>
+        <roles>
+            <role>CEO_Avana</role>
+        </roles>
+        <users>
+            <user>munna.singh@emmbi.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Dispatch__c</sobjectType>
+    </queueSobject>
+</Queue>

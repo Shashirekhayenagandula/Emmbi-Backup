@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manufacturer_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Manufacturer Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Self-made</fullName>
+                <default>false</default>
+                <label>Self-made</label>
+            </value>
+            <value>
+                <fullName>3rd Party made</fullName>
+                <default>false</default>
+                <label>3rd Party made</label>
+            </value>
+            <value>
+                <fullName>Live production</fullName>
+                <default>false</default>
+                <label>Live production</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

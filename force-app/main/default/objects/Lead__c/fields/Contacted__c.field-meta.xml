@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contacted__c</fullName>
+    <description>Whether the Farmer has been contacted or not. Marks a already contacted farmer as uncontacted if the follow up date has passed.</description>
+    <externalId>false</externalId>
+    <formula>IF( AND(OR(Number_of_Ponds__c &lt;= 0, AND(Number_of_Ponds__c &gt; 0, NOT(ISBLANK(Overdue_Follow_Up__c)), Overdue_Follow_Up__c &gt; 0)),  Num_Converted_Product_Informations__c &lt;= 0), False, True)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Contacted</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

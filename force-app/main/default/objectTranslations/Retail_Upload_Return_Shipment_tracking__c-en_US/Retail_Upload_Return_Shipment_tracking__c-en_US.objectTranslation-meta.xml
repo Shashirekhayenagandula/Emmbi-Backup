@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Retail Upload Return Shipment tracking</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Retail Upload Return Shipments tracking</value>
+    </caseValues>
+    <layouts>
+        <layout>Retail Upload Return Shipment tracking Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Dispatch_should_not_be_furthe_than_curre</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Phone_Validation</name>
+    </validationRules>
+</CustomObjectTranslation>

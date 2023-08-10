@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Kgs</fullName>
+        <default>false</default>
+        <label>Kgs</label>
+    </customValue>
+    <customValue>
+        <fullName>Nos</fullName>
+        <default>false</default>
+        <label>Nos</label>
+    </customValue>
+    <customValue>
+        <fullName>Sq M</fullName>
+        <default>false</default>
+        <label>Sq M</label>
+    </customValue>
+    <customValue>
+        <fullName>M</fullName>
+        <default>false</default>
+        <label>M</label>
+    </customValue>
+    <masterLabel>Unit of Sale</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

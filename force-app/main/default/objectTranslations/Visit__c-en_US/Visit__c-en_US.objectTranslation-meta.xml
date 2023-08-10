@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Visit</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Visits</value>
+    </caseValues>
+    <layouts>
+        <layout>New Farmer / Pond Visit</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>New Farmer / Pond Visit</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Visit Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Complaint_Visit</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Current_Customer_Visit</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Dealer_Distributor_Visit</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Govt_Official_Visit</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Group_Visit</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>New_Farmer_Pond_Vist</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Other_Visit</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dispatch_Totals_Validation</fullName>
+    <active>false</active>
+    <errorConditionFormula>NOT( Dispatch_Total_Amount__c  &gt;=  Dispatch_Advance__c )</errorConditionFormula>
+    <errorDisplayField>Dispatch_Advance__c</errorDisplayField>
+    <errorMessage>Dispatch Advance should be less than dispatch total amount.</errorMessage>
+</ValidationRule>

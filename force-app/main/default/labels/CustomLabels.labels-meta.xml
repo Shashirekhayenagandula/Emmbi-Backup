@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Hindi</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Hindi Language</shortDescription>
+        <value>हेलो ग्राहक, अगर आप संतुष्ट हैं तो कृपया हमारी कार्यकारी को  प्रदान करें, अन्यथा प्रदान न करें</value>
+    </labels>
+    <labels>
+        <fullName>Kannada</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Kannada Language</shortDescription>
+        <value>ಹಲೋ ಗ್ರಾಹಕ, ನೀವು ತೃಪ್ತರಾಗಿದ್ದರೆ ದಯವಿಟ್ಟು ನಮ್ಮ ಕಾರ್ಯನಿರ್ವಾಹಕರಿಗೆ ಒಟಿಪಿ , ಅನ್ನು ಒದಗಿಸಿ, ಇಲ್ಲದಿದ್ದರೆ ಒಟಿಪಿ ಒದಗಿಸಬೇಡಿ</value>
+    </labels>
+    <labels>
+        <fullName>Marathi</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Marathi Language</shortDescription>
+        <value>नमस्कार ग्राहक, आपण समाधानी असल्यास कृपया आमच्या कार्यकारीला ओटीपी  द्या, अन्यथा ओटीपी प्रदान करू नका</value>
+    </labels>
+    <labels>
+        <fullName>update_dealer_achivement</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>update dealer achivement</shortDescription>
+        <value>Yes</value>
+    </labels>
+    <labels>
+        <fullName>update_dealer_target</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>update dealer target</shortDescription>
+        <value>Yes</value>
+    </labels>
+    <labels>
+        <fullName>update_employee_target_and_achivement</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>update employee target and achivement</shortDescription>
+        <value>Yes</value>
+    </labels>
+</CustomLabels>

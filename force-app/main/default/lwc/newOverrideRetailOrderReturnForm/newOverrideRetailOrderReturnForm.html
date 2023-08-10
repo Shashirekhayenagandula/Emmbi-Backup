@@ -1,0 +1,426 @@
+<template>
+    <lightning-record-edit-form record-id={recordId} object-api-name="Retail_Order_Return_Form__c">
+        <lightning-messages> </lightning-messages>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="customerHeader slds-modal__container">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                        title="Close" onclick={closeQuickAction}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                            size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate slds-text-heading--medium">New
+                        Order Return Form</h2>
+                </header>
+
+                <div class=" slds-modal__content" id="modal-content-id-1">
+                    <div class="matchInnerPadding">
+                        <p class="matchTitle slds-section__title slds-theme_shade matchTitleShade">Order Summary</p>
+                        <lightning-layout multiple-rows="true" class="matchContent">
+
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Retail_Upload_Credit_Note__c"
+                                    onchange={onchangeUploadCreditNote} value={orderList.Retail_Upload_Credit_Note__c}
+                                    class="slds-p-horizontal_x-small" data-name="date"></lightning-input-field>
+                            </lightning-layout-item>
+
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="OwnerId" class="slds-p-horizontal_x-small"
+                                    onchange={onchangeOwnerId} value={orderList.OwnerId}></lightning-input-field>
+                            </lightning-layout-item>
+
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Retail_Order__c" class="slds-p-horizontal_x-small"
+                                    onchange={onchangeOrderId}
+                                    value={orderList.Retail_Order__c}></lightning-input-field>
+                            </lightning-layout-item>
+
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Retail_Customer__c" onchange={onchangeRetailCustomer}
+                                    value={orderList.Retail_Customer__c} class="slds-p-horizontal_x-small"
+                                    ></lightning-input-field>
+                            </lightning-layout-item>
+
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Retail_Warehouse__c" onchange={onchangeWarehouse}
+                                    value={orderList.Retail_Warehouse__c} 
+                                    class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+
+                        </lightning-layout>
+
+                        <lightning-card>
+
+                            <h3 slot="title" class="slds-align_absolute-center">
+                                <lightning-icon icon-name="standard:timesheet" alternative-text="Event"
+                                    size="small"></lightning-icon>
+                                &nbsp; Products
+                            </h3>
+                            <lightning-record-edit-form object-api-name="Retail_Order_Return_Product__c"
+                                data-id="ProductForm">
+                                <lightning-messages></lightning-messages>
+                                <div class="slds-scrollable_x" style="height:100%;">
+                                    <div class="slds-m-around_medium">
+
+                                        <table class="slds-table slds-table_cell-buffer slds-table_bordered"
+                                            aria-labelledby="element-with-table-label other-element-with-table-label">
+                                            <thead>
+                                                <tr class="slds-line-height_reset">
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Product Group"
+                                                            style="width:120px;">Product Group</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Product" style="width:120px;">
+                                                            <span class="slds-text-color_destructive">*
+                                                            </span>Product
+                                                        </div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Hole Type"
+                                                            style="width:120px;">Hole Type</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Hole Spacing"
+                                                            style="width:120px;">Hole Spacing</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Std Pkg Sizes"
+                                                            style="width:120px;">Std Pkg Sizes</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Quantity"
+                                                            style="width:120px;"><span
+                                                                class="slds-text-color_destructive">*
+                                                            </span>Quantity</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Unit Price"
+                                                            style="width:120px;">Unit Price</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Discounted Unit Price"
+                                                            style="width:120px;">Discounted Unit Price</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Kg Rate" style="width:120px;">
+                                                            Kg Rate</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Discounted Kg Rate"
+                                                            style="width:120px;">Discounted Kg Rate</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Weight(kg)"
+                                                            style="width:120px;">Weight(kg)</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Sub Total"
+                                                            style="width:120px;">Sub Total</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Sub Total"
+                                                            style="width:120px;">Product Discount</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Sub Total"
+                                                            style="width:120px;">Return Quantity</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Sub Total"
+                                                            style="width:120px;">Return Weight</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Sub Total"
+                                                            style="width:120px;">Return Net Total for Product</div>
+                                                    </th>
+
+                                                    <template if:false={deleteAction}>
+                                                        <th class="" scope="col">
+                                                            <div class="slds-truncate" title="Action">Action</div>
+                                                        </th>
+                                                    </template>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <template for:each={productList} for:item="product" for:index="index">
+                                                    <tr key={product.id}>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Product_Group__c"
+                                                                value={product.Product_Group__c} data-index={index}
+                                                                data-name="productGroup"
+                                                                onchange={handleOnchangeProductGroup}
+                                                                variant="label-hidden">
+                                                            </lightning-input-field>
+
+                                                            <!-- <div if:true={product.productComplete} class="slds-text-color_error slds-p-horizontal_x-small">
+                                                           Please Select Product</div> -->
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Products__c"
+                                                                value={product.Products__c} required
+                                                                variant="label-hidden" onchange={onchangeProduct}
+                                                                data-index={index} data-name="product">
+                                                            </lightning-input-field>
+                                                        </td>
+
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Hole_Type__c"
+                                                                value={product.Hole_Type__c} variant="label-hidden"
+                                                                data-index={index} onchange={onchangeHoleType}>
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Hole_Spacing__c"
+                                                                value={product.Hole_Spacing__c} variant="label-hidden"
+                                                                data-index={index} onchange={onchangeHoleSapcing}>
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Std_Pkg_Sizes__c"
+                                                                value={product.Std_Pkg_Sizes__c} variant="label-hidden"
+                                                                data-index={index} onchange={onchangeStdPkgSizes}>
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Quantity__c"
+                                                                value={product.Quantity__c} required
+                                                                onchange={handleChangeQuantity} variant="label-hidden"
+                                                                data-index={index} data-name="quantity">
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Unit_Price__c"
+                                                                value={product.Unit_Price__c} variant="label-hidden"
+                                                                data-index={index} onchange={onchangeUnitPrices}>
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Discounted_Unit_Price__c"
+                                                                value={product.Discounted_Unit_Price__c}
+                                                                variant="label-hidden" data-index={index}
+                                                                onchange={onchangeDiscountedUnitPrice}>
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Kg_Rate__c"
+                                                                value={product.Kg_Rate__c} variant="label-hidden"
+                                                                data-index={index} onchange={onchangeKgRate}>
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Discounted_Kg_Rate__c"
+                                                                value={product.Discounted_Kg_Rate__c}
+                                                                variant="label-hidden" data-index={index}
+                                                                onchange={onchangeDiscountedKgRate}>
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Weight_Kg__c"
+                                                                value={product.Weight_Kg__c} variant="label-hidden"
+                                                                data-index={index} onchange={onchangeWeight}>
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Sub_Total__c"
+                                                                value={product.Sub_Total__c} variant="label-hidden"
+                                                                data-index={index} onchange={onchangeSubTotal}>
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Product_Discount__c"
+                                                                value={product.Product_Discount__c}
+                                                                variant="label-hidden" data-index={index}
+                                                                onchange={onchangeProductDiscount}>
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Net_Total_for_Product__c"
+                                                                value={product.Net_Total_for_Product__c}
+                                                                variant="label-hidden" data-index={index}
+                                                                onchange={onchangeNetTotal}>
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Return_Quantity__c"
+                                                                value={product.Return_Quantity__c}
+                                                                variant="label-hidden" data-index={index}
+                                                                onchange={onchangeReturnQuantity}>
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Return_Weight__c"
+                                                                value={product.Return_Weight__c} variant="label-hidden"
+                                                                data-index={index} onchange={onchangeReturnWeight}>
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field
+                                                                field-name="Return_Net_Total_for_Product__c"
+                                                                value={product.Return_Net_Total_for_Product__c}
+                                                                variant="label-hidden" data-index={index}
+                                                                onchange={onchangeReturnNetTotalForProduct}>
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <template if:false={deleteAction}>
+                                                            <td>
+                                                                <lightning-icon icon-name="action:delete"
+                                                                    alternative-text="Delete Row" size="small"
+                                                                    title="Delete Row" onclick={removeRow}
+                                                                    data-index={index}>
+                                                                </lightning-icon>
+                                                            </td>
+                                                        </template>
+                                                    </tr>
+                                                </template>
+
+                                            </tbody>
+                                        </table>
+
+                                        <div if:true={isErrorProduct}
+                                            class="slds-text-color_error slds-p-horizontal_x-small">
+                                            Please include product information</div>
+                                    </div>
+                                </div>
+                                &nbsp;&nbsp;
+
+                            </lightning-record-edit-form>
+                            &nbsp;&nbsp;
+                            <lightning-button icon-name="action:new" variant="success" label="Add New" onclick={addRow}
+                                class="margin-left"></lightning-button>
+
+                        </lightning-card>
+                        <p class="matchTitle slds-section__title slds-theme_shade matchTitleShade">Delivery Details</p>
+
+                        <lightning-layout multiple-rows="true" class="matchContent">
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Dispatch_Date__c" onchange={onchangeDispatchDate}
+                                    value={orderList.Dispatch_Date__c}
+                                    class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Delivery_Date__c" onchange={onchangeDeliveryDate}
+                                    value={orderList.Delivery_Date__c} class="slds-p-horizontal_x-small"
+                                    required></lightning-input-field>
+                            </lightning-layout-item>
+                        </lightning-layout>
+
+                        <p class="matchTitle slds-section__title slds-theme_shade matchTitleShade">Payment
+                            Information</p>
+                        <lightning-layout multiple-rows="true" class="matchContent">
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Sub_Total__c" onchange={onchangeSubTotal}
+                                    value={orderList.Sub_Total__c}
+                                    class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Order_Discount__c" onchange={onchangeOrderDiscount}
+                                    value={orderList.Order_Discount__c} class="slds-p-horizontal_x-small"
+                                    required></lightning-input-field>
+                            </lightning-layout-item>
+
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Net_Total__c" onchange={onchangeNetTotal}
+                                    value={orderList.Net_Total__c}
+                                    class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Final_Amount_Received__c"
+                                    onchange={onchangeFinalAmountReceived} value={orderList.Final_Amount_Received__c}
+                                    class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Final_Amount_Owed__c"
+                                    onchange={onchangeFinalAmountOwed} value={orderList.Final_Amount_Owed__c}
+                                    class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+                        </lightning-layout>
+
+                        <p class="matchTitle slds-section__title slds-theme_shade matchTitleShade">Return Details
+                        </p>
+                        <lightning-layout multiple-rows="true" class="matchContent">
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Reason_for_Return__c" required
+                                    onchange={onchangeReasonForReturn} value={orderList.Reason_for_Return__c}
+                                    class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Mode_of_Refund__c" required onchange={onchangeModeOfRefund}
+                                    value={orderList.Mode_of_Refund__c} class="slds-p-horizontal_x-small"
+                                    ></lightning-input-field>
+                            </lightning-layout-item>
+
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Return_Sub_Total__c"
+                                    onchange={onchangeReturnSubTotal} value={orderList.Return_Sub_Total__c}
+                                    class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Return_Net_Total__c"
+                                    onchange={onchangeReturnNetTotal} value={orderList.Return_Net_Total__c}
+                                    class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Credit_Note__c" onchange={onchangeCreditNote}
+                                    value={orderList.Credit_Note__c}
+                                    class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Return_Freight_Charge_Bearer__c"
+                                required onchange={onchangeReturnFreightChargeBearer}
+                                    value={orderList.Return_Freight_Charge_Bearer__c}
+                                    class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Comments__c" onchange={onchangeComments}
+                                    value={orderList.Comments__c}
+                                    class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+
+                        </lightning-layout>
+
+
+                        <footer class="slds-modal__footer slds-text-align_center">
+                            <lightning-button label="Cancel" variant="neutral" onclick={closeQuickAction}
+                                style="margin:10px"></lightning-button>
+                            <!--<lightning-button variant="brand"  name="save" label="Save" onclick={handleSaves}></lightning-button>-->
+
+                            <lightning-button class="slds-m-top_small" variant="brand" type="submit" name="Save"
+                                label="Save" onclick={validateError} disabled={saveBool}>
+                            </lightning-button>
+
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </lightning-record-edit-form>
+</template>

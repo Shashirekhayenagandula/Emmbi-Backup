@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This Flow is to update Std PAcking Size when Retail Standard Packing size is created or updated</description>
+    <interviewLabel>Update Product Std Package Size When {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Update Product Std Package Size When update standard packing size is created</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_Product</name>
+        <label>Update Product</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Product__r.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Std_Package_Size__c</field>
+            <value>
+                <elementReference>$Record.Updated_Packaging_Size__c</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Retail_Product__c</object>
+    </recordUpdates>
+    <startElementReference>Update_Product</startElementReference>
+    <status>Obsolete</status>
+</Flow>

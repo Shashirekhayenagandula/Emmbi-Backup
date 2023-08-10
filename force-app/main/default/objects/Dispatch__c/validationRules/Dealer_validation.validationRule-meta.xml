@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dealer_validation</fullName>
+    <active>true</active>
+    <description>If Distributor is Avana then Dealer is required.</description>
+    <errorConditionFormula>Distributor__r.Id = &apos;a032w00000FcumH&apos; &amp;&amp; ISBLANK(Dealer__c)</errorConditionFormula>
+    <errorDisplayField>Dealer__c</errorDisplayField>
+    <errorMessage>If Distributor is Avana then Dealer is required.</errorMessage>
+</ValidationRule>

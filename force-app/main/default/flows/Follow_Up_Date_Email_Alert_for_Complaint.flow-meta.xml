@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>sp1Follow_up_date_email_alert_before_1_day</name>
+        <label>Complaint__c.Follow_up_date_email_alert_before_1_day</label>
+        <locationX>176</locationX>
+        <locationY>288</locationY>
+        <actionName>Complaint__c.Follow_up_date_email_alert_before_1_day</actionName>
+        <actionType>emailAlert</actionType>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <name>sp2Follow_up_date_email_alert_on_that_day</name>
+        <label>Complaint__c.Follow_up_date_email_alert_on_that_day</label>
+        <locationX>440</locationX>
+        <locationY>288</locationY>
+        <actionName>Complaint__c.Follow_up_date_email_alert_on_that_day</actionName>
+        <actionType>emailAlert</actionType>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <description>Migrated from the: Follow Up Date Email Alert for Complaint workflow rule
+Workflow rule description: Email send to Complaint owner for follow up date&quot;</description>
+    <interviewLabel>Follow Up Date Email Alert for Complaint {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Follow Up Date Email Alert for Complaint</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <status>InvalidDraft</status>
+</Flow>

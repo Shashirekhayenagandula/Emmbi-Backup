@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invoice_Format</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+NOT(ISBLANK( Invoice_Number__c ))
+,
+NOT(REGEX(Invoice_Number__c ,&quot;^ST.*&quot;))
+,
+NOT(REGEX(Invoice_Number__c ,&quot;^PL.*&quot;))
+,
+NOT(REGEX(Invoice_Number__c ,&quot;AV[1-6]{1}[- /.]\\d{2}-\\d{2}[- /.]\\d{5}[- /.][0-99]{1,2}&quot;))
+,
+NOT(REGEX(Invoice_Number__c ,&quot;AV[1-6]{1}[- /.]\\d{2}-\\d{2}[- /.]\\d{5}&quot;))
+)</errorConditionFormula>
+    <errorDisplayField>Invoice_Number__c</errorDisplayField>
+    <errorMessage>If Invoice Date is Greater than Year 2019 Invoice Number Format should 
+For example - &quot;AV1/21-22/12345&quot; OR for Rajasthan &quot;AV1/21-22/12345/1&quot;</errorMessage>
+</ValidationRule>

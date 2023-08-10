@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Complaint</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Complaints</value>
+    </caseValues>
+    <layouts>
+        <layout>Complaint Layout</layout>
+        <sections>
+            <label></label>
+            <section>Completion Observation</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Inactive Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Operator Work Done</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>New Complaint Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>Check_In_Check_Out</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Complaint_Closed</name>
+    </quickActions>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Details_Complaint</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>New_Complaint</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Approval_Request_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Close_complaints_needs_closing_remarks</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Complaint_Close_Frm_CloseComplaint_Btn</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Complaint_Lock_Once_Closed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Customer_of_Enquiry_not_blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>DistributorMandatory_ComplainDueToDealer</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Inactive_duo_to_reason_for_inactive_stag</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Resolution_Need_For_Under_Resolution</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Resolution_Vendor_For_Under_Leakage</name>
+    </validationRules>
+</CustomObjectTranslation>

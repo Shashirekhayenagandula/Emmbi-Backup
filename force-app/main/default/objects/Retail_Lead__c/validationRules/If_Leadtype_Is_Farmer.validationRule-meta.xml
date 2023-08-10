@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>If_Leadtype_Is_Farmer</fullName>
+    <active>false</active>
+    <description>If LeadType is Farmer then SellerName shouldn&apos;t be empty</description>
+    <errorConditionFormula>AND( ISPICKVAL( Lead_Type__c , &quot;Farmer&quot;) , 
+      ISBLANK( Seller_Name__c ) 
+
+)</errorConditionFormula>
+    <errorMessage>Please provide a seller name for lead type Farmer</errorMessage>
+</ValidationRule>

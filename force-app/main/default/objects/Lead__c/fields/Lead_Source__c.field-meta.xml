@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lead_Source__c</fullName>
+    <externalId>false</externalId>
+    <label>Lead From</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Kisan March 2022</fullName>
+                <default>false</default>
+                <label>Lead - Kisan March 2022</label>
+            </value>
+            <value>
+                <fullName>Dispatch Email</fullName>
+                <default>false</default>
+                <label>Dispatch Email</label>
+            </value>
+            <value>
+                <fullName>TV Ad</fullName>
+                <default>false</default>
+                <label>TV Ad</label>
+            </value>
+            <value>
+                <fullName>Exhibition</fullName>
+                <default>false</default>
+                <label>Exhibition</label>
+            </value>
+            <value>
+                <fullName>Subsidy List</fullName>
+                <default>false</default>
+                <label>Subsidy List</label>
+            </value>
+            <value>
+                <fullName>Toll Free Number Inquiry</fullName>
+                <default>false</default>
+                <label>Toll Free Number Enquiry</label>
+            </value>
+            <value>
+                <fullName>Gram Sabha</fullName>
+                <default>false</default>
+                <label>Gram Sabha</label>
+            </value>
+            <value>
+                <fullName>Pond visit</fullName>
+                <default>false</default>
+                <label>Pond visit</label>
+            </value>
+            <value>
+                <fullName>Individual meetings</fullName>
+                <default>false</default>
+                <label>Individual meetings</label>
+            </value>
+            <value>
+                <fullName>Krishi Darshan</fullName>
+                <default>false</default>
+                <label>Krishi Darshan</label>
+            </value>
+            <value>
+                <fullName>Bazaar Day</fullName>
+                <default>false</default>
+                <label>Bazaar Day</label>
+            </value>
+            <value>
+                <fullName>Referred by other farmer</fullName>
+                <default>false</default>
+                <label>Referred by other farmer</label>
+            </value>
+            <value>
+                <fullName>Meeting during pond installation</fullName>
+                <default>false</default>
+                <label>Meeting during pond installation</label>
+            </value>
+            <value>
+                <fullName>Marketyard</fullName>
+                <default>false</default>
+                <label>Marketyard Referral</label>
+            </value>
+            <value>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <label>Others</label>
+            </value>
+            <value>
+                <fullName>Facebook</fullName>
+                <default>false</default>
+                <label>Facebook</label>
+            </value>
+            <value>
+                <fullName>Google</fullName>
+                <default>false</default>
+                <label>Google</label>
+            </value>
+            <value>
+                <fullName>YouTube</fullName>
+                <default>false</default>
+                <label>YouTube</label>
+            </value>
+            <value>
+                <fullName>Website</fullName>
+                <default>false</default>
+                <label>Website</label>
+            </value>
+            <value>
+                <fullName>Baramati KVK Exhibition</fullName>
+                <default>false</default>
+                <label>Baramati KVK Exhibition</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

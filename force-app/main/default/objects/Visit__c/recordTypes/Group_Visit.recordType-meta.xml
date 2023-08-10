@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Group_Visit</fullName>
+    <active>false</active>
+    <label>Group Visit</label>
+    <picklistValues>
+        <picklist>Interest_Level_New__c</picklist>
+        <values>
+            <fullName>Contact Later</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Interested - Working for Other Pond Lining Company</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Interested in Pond Lining</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Positive</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Interest_Level__c</picklist>
+        <values>
+            <fullName>Not Interested %2F rate more than - 1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Positive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rate Negotiation %28Upto - 1%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Operator_Machine_Used__c</picklist>
+        <values>
+            <fullName>Handgun</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Twinny</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Operator__c</picklist>
+        <values>
+            <fullName>ASHHG02-Sunil Dongardive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ASHHG04-Rajesh Kumar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ASHTM01-Bharat Bhand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AVATM01-Abhay Yadav</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AVATM03-Roshan Rathod</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AVATM04-Bhushan Rathod</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ajeet Rathod</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Akash Mohite</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Arvind Kushwaha</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Avinash Chivhan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BALTM01-Vitthal Dhere</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BALTM04-Pradip Lohakare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Bapu Shirsath</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chanilal singh</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Chothelal</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Deepak Bhusari</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dungar Ram</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gorakh Yadav</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Govinda Yadav</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gurjinder Singh</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Himanshu Kushwaha</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>JINHG01-Ainl Jhinjha</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>JINHG02-pankaj Godara</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KRUTM01-Anil Kushawaha</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Krushna Shinde</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lakhan Parkhe</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Laxman Lokhande</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nikhil Mohite</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pankaj Kumar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pawan Kadwa</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pradeep Dhakad</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rahul Dhakad</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Raju %28Devilal ji%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ram Sadan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ramanand Kushwaha</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SAITM01-Rahul Yadav</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SARTM02-Shekhar Zarekar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sachin Bansode</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Santosh Helwar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Satish Bhambre</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Satosh Yadav</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shankar %28Chhabra sales%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sharad Gavhane</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sonu Giri %28Devilal ji%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sudhir Yadav</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sunil Dongardive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suresh Pitale</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Tejas Kadam</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Umesh Yadav</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vinod Kushwah</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vishal Deshmukh</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Viswanath Awati</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vivek Rai</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Purpose__c</picklist>
+        <values>
+            <fullName>Casual Visit</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gift Distribution</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Installation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Post Installation</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pre installation</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Statenew__c</picklist>
+        <values>
+            <fullName>Maharashtra</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Telangana</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type_Of_Visit__c</picklist>
+        <values>
+            <fullName>Problem Visit</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type_of_Subsidy__c</picklist>
+        <values>
+            <fullName>MTS</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NHM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No Subsidy</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>POCHRA</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RKVY</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

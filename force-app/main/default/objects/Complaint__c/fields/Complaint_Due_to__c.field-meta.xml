@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Complaint_Due_to__c</fullName>
+    <externalId>false</externalId>
+    <label>Complaint Due to</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Distributor/Dealer</fullName>
+                <default>false</default>
+                <label>Distributor/Dealer</label>
+            </value>
+            <value>
+                <fullName>Company</fullName>
+                <default>false</default>
+                <label>Company</label>
+            </value>
+            <value>
+                <fullName>Old distributor</fullName>
+                <default>false</default>
+                <label>Old distributor</label>
+            </value>
+            <value>
+                <fullName>Farmer</fullName>
+                <default>false</default>
+                <label>Farmer</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

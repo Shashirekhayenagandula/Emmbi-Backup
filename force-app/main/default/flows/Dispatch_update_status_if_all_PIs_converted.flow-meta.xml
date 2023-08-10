@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>If Total Product Infos in a Dispatch are in the converted stage, then update the Dispatch status from &quot;Invoice&quot; to &quot;Ready for Dispatch&quot;</description>
+    <interviewLabel>Dispatch - update status if all PI&apos;s converted {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Dispatch - update status if all PIs converted</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>If_Total_PIs_Converted_PIs_update_status_to_next</name>
+        <label>If Total PIs = Converted PIs, update status to next</label>
+        <locationX>176</locationX>
+        <locationY>311</locationY>
+        <filters>
+            <field>Total_PIs__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Converted_PIs__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Hold</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <startElementReference>If_Total_PIs_Converted_PIs_update_status_to_next</startElementReference>
+    <status>Active</status>
+</Flow>

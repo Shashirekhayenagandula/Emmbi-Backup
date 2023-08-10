@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Previous_Outstanding_Dispatch_Advance</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(
+OR(
+ISPICKVAL( Status__c , &apos;Exec Approval&apos;),
+ISPICKVAL( Status__c , &apos;Hold&apos;),
+ISPICKVAL( Status__c , &apos;Invoice&apos;),
+ISPICKVAL( Status__c , &apos;Warranty&apos;),
+ISPICKVAL( Status__c , &apos;Final Pay&apos;),
+ISPICKVAL( Status__c , &apos;Completed&apos;)
+)
+,
+OR(
+ISNULL( Previous_Outstanding__c ),
+ISNULL( Dispatch_Advance__c)
+) ,
+false)</errorConditionFormula>
+    <errorMessage>Please fill out the Previous Outstanding and Dispatch Advance for this Dispatch.</errorMessage>
+</ValidationRule>

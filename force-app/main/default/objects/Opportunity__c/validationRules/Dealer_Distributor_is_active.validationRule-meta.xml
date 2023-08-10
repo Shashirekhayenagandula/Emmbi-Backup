@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dealer_Distributor_is_active</fullName>
+    <active>true</active>
+    <description>Checks that the dealer/distributor picked are active. Does not perform this check for legacy data (i.e. data before the 2021-22 fiscal year where we were not using salesforce). Also does not apply this check if the pond is already converted.</description>
+    <errorConditionFormula>IF( NOT( ISBLANK ( Dealer__c ) ), NOT(Dealer__r.Active__c  &amp;&amp;  Dealer__r.Distributor__r.Active__c) ,false) 
+&amp;&amp; (Invoice_Date__c &gt; DATEVALUE(&quot;2021-03-31&quot;))
+&amp;&amp; NOT(ISPICKVAL(Opportunity_Stage__c ,&apos;Converted&apos;))</errorConditionFormula>
+    <errorDisplayField>Dealer__c</errorDisplayField>
+    <errorMessage>The dealer / distributor picked are not Active.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Avana Tank</fullName>
+        <default>false</default>
+        <label>Avana Tank</label>
+    </customValue>
+    <customValue>
+        <fullName>Biofloc Tank</fullName>
+        <default>false</default>
+        <label>Biofloc Tank</label>
+    </customValue>
+    <customValue>
+        <fullName>Leno Bag</fullName>
+        <default>false</default>
+        <label>Leno Bag</label>
+    </customValue>
+    <customValue>
+        <fullName>Mulch Film</fullName>
+        <default>false</default>
+        <label>Mulch Film</label>
+    </customValue>
+    <customValue>
+        <fullName>Murughas Bag</fullName>
+        <default>false</default>
+        <label>Murughas Bag</label>
+    </customValue>
+    <customValue>
+        <fullName>Pond Liner</fullName>
+        <default>false</default>
+        <label>Pond Liner</label>
+    </customValue>
+    <customValue>
+        <fullName>Tarpaulin</fullName>
+        <default>false</default>
+        <label>Tarpaulin</label>
+    </customValue>
+    <customValue>
+        <fullName>Thread</fullName>
+        <default>false</default>
+        <label>Thread</label>
+    </customValue>
+    <masterLabel>Product Groups</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

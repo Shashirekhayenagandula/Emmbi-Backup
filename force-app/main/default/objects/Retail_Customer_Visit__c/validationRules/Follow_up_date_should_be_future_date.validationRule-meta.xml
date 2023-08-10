@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Follow_up_date_should_be_future_date</fullName>
+    <active>true</active>
+    <errorConditionFormula>Follow_up_Date__c  &lt;  TODAY()</errorConditionFormula>
+    <errorDisplayField>Follow_up_Date__c</errorDisplayField>
+    <errorMessage>Follow-up date has to be a future date!</errorMessage>
+</ValidationRule>

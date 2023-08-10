@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Converted_Validation</fullName>
+    <active>true</active>
+    <description>After Invoices are made, all Product Information&apos;s in this Dispatch should be in Converted stage</description>
+    <errorConditionFormula>IF( 
+(OR(
+ISPICKVAL( Status__c , &apos;Hold&apos;),
+ISPICKVAL( Status__c , &apos;Warranty&apos;),
+ISPICKVAL( Status__c , &apos;Final Pay&apos;),
+ISPICKVAL( Status__c , &apos;Completed&apos;)
+)),  Total_PIs__c != Converted_PIs__c ,false)</errorConditionFormula>
+    <errorMessage>After Invoices are made, all Product Information&apos;s in this Dispatch should be in Converted stage</errorMessage>
+</ValidationRule>

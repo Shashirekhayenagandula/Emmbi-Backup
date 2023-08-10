@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Packing_List__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Packing List</label>
+    <referenceTo>Retail_Packaging_List__c</referenceTo>
+    <relationshipLabel>Retail Bundles</relationshipLabel>
+    <relationshipName>Retail_Bundles</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

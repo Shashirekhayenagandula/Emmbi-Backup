@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_add_dispatch_status_check</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT(ISBLANK(Dispatch_Detail__c)) &amp;&amp; ISCHANGED(Dispatch_Detail__c) &amp;&amp;
+NOT(ISPICKVAL(Dispatch_Detail__r.Status__c ,&apos;Submit For Approval&apos;))</errorConditionFormula>
+    <errorDisplayField>Dispatch_Detail__c</errorDisplayField>
+    <errorMessage>Dispatch Should be in Submit For Approval stage.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Return_Order_ID__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Return Order ID</label>
+    <referenceTo>Retail_Order_Return_Form__c</referenceTo>
+    <relationshipLabel>Retail Upload Return Shipments tracking</relationshipLabel>
+    <relationshipName>Retail_Upload_Return_Shipments_tracking</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

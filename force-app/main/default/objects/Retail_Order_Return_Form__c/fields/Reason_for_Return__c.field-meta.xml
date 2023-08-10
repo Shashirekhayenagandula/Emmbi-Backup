@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Reason_for_Return__c</fullName>
+    <externalId>false</externalId>
+    <label>Reason for Return</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Manufacturing Defect</fullName>
+                <default>false</default>
+                <label>Manufacturing Defect</label>
+            </value>
+            <value>
+                <fullName>Late Delivery</fullName>
+                <default>false</default>
+                <label>Late Delivery</label>
+            </value>
+            <value>
+                <fullName>Unable to pay</fullName>
+                <default>false</default>
+                <label>Unable to pay</label>
+            </value>
+            <value>
+                <fullName>Product not selling</fullName>
+                <default>false</default>
+                <label>Product not selling</label>
+            </value>
+            <value>
+                <fullName>Incorrect Delivery</fullName>
+                <default>false</default>
+                <label>Incorrect Delivery</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

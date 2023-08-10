@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Enquiry_follow_up_date_email_alert</fullName>
+        <description>Enquiry follow up date email alert</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Enquiry_Follow_up_date_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>Enquiry_follow_up_date_email_alert_on_that_day</fullName>
+        <description>Enquiry follow up date email alert on that day</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Enquiry_Follow_up_date_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>Warranty_documents_uploaded_alert</fullName>
+        <description>Warranty documents uploaded alert</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>prashant.sawant@emmbi.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>rakesh.sonawane@emmbi.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Warranty_docs_uploaded_alert</template>
+    </alerts>
+    <rules>
+        <fullName>Follow Up Date Email Alert for Product Info</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity__c.Follow_up_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>Email send to Enquiry Owner for follow up date reminder</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Enquiry_follow_up_date_email_alert_on_that_day</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Opportunity__c.Follow_up_Date__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Enquiry_follow_up_date_email_alert</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Opportunity__c.Follow_up_Date__c</offsetFromField>
+            <timeLength>-1</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+</Workflow>

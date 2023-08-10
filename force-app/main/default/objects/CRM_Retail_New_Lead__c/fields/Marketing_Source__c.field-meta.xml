@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketing_Source__c</fullName>
+    <externalId>false</externalId>
+    <label>Marketing Source</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Whatsapp</fullName>
+                <default>false</default>
+                <label>Whatsapp</label>
+            </value>
+            <value>
+                <fullName>Instagram</fullName>
+                <default>false</default>
+                <label>Instagram</label>
+            </value>
+            <value>
+                <fullName>Youtube</fullName>
+                <default>false</default>
+                <label>Youtube</label>
+            </value>
+            <value>
+                <fullName>TVC - ABP Mazha</fullName>
+                <default>false</default>
+                <label>TVC - ABP Mazha</label>
+            </value>
+            <value>
+                <fullName>TVC - Zee24 Taas</fullName>
+                <default>false</default>
+                <label>TVC - Zee24 Taas</label>
+            </value>
+            <value>
+                <fullName>TVC - TV9</fullName>
+                <default>false</default>
+                <label>TVC - TV9</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

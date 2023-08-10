@@ -1,0 +1,14 @@
+<template>
+    <div class="slds-m-top_small slds-m-bottom_medium">
+        <h2 class="slds-text-heading_small slds-m-bottom_small"></h2>
+         <div> <b>  Please Click Check-In button for Check-In and Check-Out respectively</b></div>
+        <div>
+        <!-- Success variant: Identifies a successful action -->
+        <lightning-button variant="brand" label="Check-In" title="Successful action" onclick={handlecheckin} class="slds-m-left_x-small"></lightning-button>
+
+        <!-- Destructive variant: Identifies a potentially negative action -->
+        <lightning-button variant="brand" label="Check-Out" title="Destructive action" onclick={handleCheckOut} class="slds-m-left_x-small"></lightning-button>
+        
+        </div>
+    </div>
+</template>

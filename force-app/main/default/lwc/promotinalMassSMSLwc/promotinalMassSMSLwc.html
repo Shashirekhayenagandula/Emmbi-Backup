@@ -1,0 +1,206 @@
+<template>
+    <div if:true={isSpinner}>
+        <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+    </div>
+    <lightning-card>
+       <center> <div class="slds-select_container" style="width: 50%; ">
+            <select  class="slds-select slct" onchange={LeadOrCustomerFetch}>
+              <option value="NONE">NONE</option>
+              <option value="Lead">Lead</option>
+              <option value="Customer">Customer</option>
+            </select>
+        </div></center>
+        <lightning-layout vertical-align="center" class="x-large">
+            <lightning-layout-item flexibility="auto" padding="around-small">
+                <lightning-input variant="label-hidden" label="Search" class="srch" type="search" placeholder="Enter Name" disabled={IsSelected} onchange={SearchValResult}></lightning-input>
+            </lightning-layout-item>
+        </lightning-layout><br/>
+    <!--Lead Table-->   
+        <lightning-layout if:true={LeadTableLayout}>
+            <div class="slds-scrollable" style="height: 230px;">
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-tables slds-table_fixed-layout">
+                    <thead >
+                        <tr class="slds-text-title_caps">
+                            <th class="" scope="col" style="background-color: grey; color:black;" width="100"> 
+                                <div class="slds-truncate" title="Select">Select</div>   
+                            </th>   
+                            <th class="" scope="col" style="background-color: grey; color:black;">
+                                <div class="slds-truncate" title="Lead No.">Lead No.</div>
+                            </th>
+                            <th class=""  scope="col" style="background-color: grey; color:black;">
+                                <div class="slds-truncate" title="First Name">First Name</div>
+                            </th>
+                            <th class=""  scope="col" style="background-color: grey; color:black;">
+                                <div class="slds-truncate" title="Last Name">Last Name</div>
+                            </th>
+                            <th class=""  scope="col" style="background-color: grey; color:black;">
+                                <div class="slds-truncate" title="Mobile Number">Mobile Number</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>     
+                        <template for:each={LeadList} for:item="ld">
+                            <tr key={ld.Id} class="slds-hint-parent">
+                                <td>
+                                    <div class="slds-truncate">
+                                        <lightning-input type="checkbox" class="chk" onchange={SelectedList} value={ld.Id} checked={ld.chkval}></lightning-input>
+                                    </div>
+                                </td>  
+                                <td>
+                                    <div class="slds-truncate" title={ld.Name}>{ld.Name}</div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate" title={ld.Farmer_First_Name__c}>{ld.Farmer_First_Name__c}</div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate" title={ld.Farmer_Last_Name__c}>{ld.Farmer_Last_Name__c}</div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate" title={ld.Mobile_Number__c}>{ld.Mobile_Number__c}</div>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>            
+                </table> 
+            </div>    
+        </lightning-layout><br/> 
+
+     <!--Customer Table-->   
+        <lightning-layout if:true={CustomerTableLayout}>
+            <div class="slds-scrollable" style="height: 230px;">
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-tables slds-table_fixed-layout">
+                    <thead>
+                        <tr class="slds-text-title_caps">
+                            <th class="" scope="col" style="background-color: grey; color:black;" width="100"> 
+                                <div class="slds-truncate" title="Select">Select</div>   
+                            </th>   
+                            <th class="" scope="col" style="background-color: grey; color:black;">
+                                <div class="slds-truncate" title="Customer No.">Customer No.</div>
+                            </th>
+                            <th class=""  scope="col" style="background-color:  grey; color:black;">
+                                <div class="slds-truncate" title="First Name">First Name</div>
+                            </th>
+                            <th class=""  scope="col" style="background-color: grey; color:black;">
+                                <div class="slds-truncate" title="Last Name">Last Name</div>
+                            </th>
+                            <th class=""  scope="col" style="background-color: grey; color:black;">
+                                <div class="slds-truncate" title="Mobile Number">Mobile Number</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>     
+                        <template for:each={CustomerList} for:item="cstmr">
+                            <tr key={cstmr.Id} class="slds-hint-parent">
+                                <td>
+                                    <div class="slds-truncate">
+                                        <lightning-input type="checkbox" class="chk" onchange={SelectedList} value={cstmr.Id} checked={cstmr.chkval}></lightning-input>
+                                    </div>
+                                </td>  
+                                <td>
+                                    <div class="slds-truncate" title={cstmr.Customer_No__c}>{cstmr.Customer_No__c}</div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate" title={cstmr.Farmer_First_Name__c}>{cstmr.Farmer_First_Name__c}</div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate" title={cstmr.Name}>{cstmr.Name}</div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate" title={cstmr.Phone}>{cstmr.Phone}</div>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>            
+                </table> 
+            </div>
+        </lightning-layout>
+        <br/>
+
+        <div>
+            <center> 
+                <lightning-button variant="" label="Cancel" class="Cancel" onclick={handleCancel} value="cancel" ></lightning-button>&nbsp;&nbsp;
+                <lightning-button variant="brand" label="Next" class="Next" onclick={handleNext} value="next" disabled={buttonDisable}></lightning-button>
+            </center>
+          </div>
+    </lightning-card>
+
+    <template if:true={NextTemplate}>
+        <!--On click of Next-->
+        <div style="height:640px">
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_large" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1">
+            <div class="slds-modal__containers">
+                    <header class="slds-modal__header">
+                    <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate"><b>Selected Items</b></h2>
+                    </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <!--Content-->
+                    <div class="slds-scrollable" style="height: 450px; width: 100%;">
+                        <table class="slds-table slds-table_bordered slds-table_col-bordered slds-table_cell-buffer slds-table_fixed-layout slds-table_resizable-cols slds-tables"> 
+                            <thead>
+                                <tr class="slds-text-title_caps">
+                                    <th scope="col" style="background-color: grey; color:black;" height="50">
+                                        <center><span class="slds-truncate" title="First Nmae">First Name</span></center>
+                                    </th>
+                                    <th scope="col" style="background-color:  grey; color:black;">
+                                        <center><span class="slds-truncate" title="Last Name">Last Name</span></center>
+                                    </th>
+                                    <th scope="col" style="background-color: grey; color:black;">
+                                        <center><span class="slds-truncate" title="Mobile Number">Mobile Number</span></center>
+                                    </th>
+                                    <th scope="col" style="background-color: grey; color:black;" width="90">
+                                        <center><span class="slds-truncate" title="Delete">Delete</span></center>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody> 
+                                <template for:each={FinalList} for:item="fl" for:index="index">     
+                                    <tr key={fl.Id}>
+                                
+                                        <td role="gridcell"> 
+                                                <center><div class="slds-truncate" title={fl.FName}>{fl.FName}</div></center>
+                                        </td>
+                                        <td role="gridcell">  
+                                            <center><div class="slds-truncate" title={fl.LName}>{fl.LName}</div></center>
+                                        </td>
+                                        <td role="gridcell"> 
+                                            <center><div class="slds-truncate" title={fl.Mobile}>{fl.Mobile}</div></center>
+                                        </td>
+                                        <td >
+                                            <lightning-button-icon icon-name="utility:delete" size="medium" variant="border-filled" alternative-text="Delete"   class="slds-m-left_xx-small deleteClass"  value={fl.Id} onclick={deleteItem}></lightning-button-icon>
+                                        </td>
+                                    </tr>
+                                </template>
+                            </tbody>            
+                        </table>
+                    </div>    
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning-button variant="brand" label="Back" class="Back" onclick={handleBack} value="back" ></lightning-button>&nbsp;&nbsp;
+                    <lightning-button variant="" label="Cancel" class="Cancel" onclick={handleCancel} value="cancel" ></lightning-button>&nbsp;&nbsp;
+                    <lightning-button variant="brand" label="Next" class="Save" onclick={handleNextMsg} value="next"></lightning-button>
+                </footer>
+            </div>
+        </section>                    
+        </div>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template> 
+    
+    <template if:true={SMSWriteModal}>
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                        <header class="slds-modal__header">
+                        <h2 id="modal-heading-02" class="slds-modal__title slds-hyphenate"><b>Write Promotional Message</b></h2>
+                        </header>
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">   
+                            <lightning-textarea name="TextArea" value="" label="" max-length="500" class="TxtArea"></lightning-textarea>
+                        </div> <br/>
+                        <footer class="slds-modal__footer" style="margin-top: -17px;">
+                            <lightning-button variant="brand" label="Back" class="Back" onclick={handleSMSBack} value="back" ></lightning-button>&nbsp;&nbsp;
+                            <lightning-button variant="" label="Cancel" class="Cancel" onclick={handleCancel} value="cancel" ></lightning-button>&nbsp;&nbsp;
+                            <lightning-button variant="brand" label="Send" class="Send" onclick={handleSendMsg} value="send" disabled={sendButton}></lightning-button>
+                        </footer>
+                </div>
+            </section> 
+        <div class="slds-backdrop slds-backdrop_open"></div>              
+    </template>
+</template>

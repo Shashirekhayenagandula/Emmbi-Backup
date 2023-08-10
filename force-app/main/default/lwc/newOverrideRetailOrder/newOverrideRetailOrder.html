@@ -1,0 +1,458 @@
+<template>
+    <lightning-record-edit-form record-id={recordId} object-api-name="Retail_Order__c">
+        <lightning-messages> </lightning-messages>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="customerHeader slds-modal__container">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                        title="Close" onclick={closeQuickAction}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                            size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate slds-text-heading--medium">New
+                        Order</h2>
+                </header>
+
+                <div class=" slds-modal__content" id="modal-content-id-1">
+                    <div class="matchInnerPadding">
+                        <p class="matchTitle slds-section__title slds-theme_shade matchTitleShade">Information</p>
+                        <lightning-layout multiple-rows="true" class="matchContent">
+
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Order_Date__c" onchange={onchangeOrderDate}
+                                    value={orderList.Order_Date__c} disabled class="slds-p-horizontal_x-small" required
+                                    data-name="date"></lightning-input-field>
+                            </lightning-layout-item>
+
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="OwnerId" class="slds-p-horizontal_x-small"
+                                    onchange={onchangeOwnerId} value={orderList.OwnerId}></lightning-input-field>
+                            </lightning-layout-item>
+
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Order_Type__c" onchange={onchangeOrderType}
+                                    value={orderList.Order_Type__c} onblur={handleBlur}
+                                    class="slds-p-horizontal_x-small" data-name="ordertype"></lightning-input-field>
+                            </lightning-layout-item>
+                            <template if:false={isDisplayReceiptWarehouse}>
+                                <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                    large-device-size="6">
+                                    <lightning-input-field field-name="Retail_Customer__c"
+                                        onchange={onchangeRetailCustomer} value={orderList.Retail_Customer__c}
+                                        class="slds-p-horizontal_x-small" data-name="customer" required></lightning-input-field>
+                                </lightning-layout-item>
+                            </template>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Warehouse__c" onchange={onchangeWarehouse}
+                                    value={orderList.Warehouse__c} required class={cssClass} data-name="warehouse"></lightning-input-field>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                        <lightning-layout multiple-rows="true" class="matchContent">
+                            <template if:false={isDisplayReceiptWarehouse}>
+                                <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                    large-device-size="6">
+                                    <lightning-input-field field-name="Has_this_Customer_faced_issues_with_orde__c"
+                                        onchange={onchangeHasCustomerFaced}
+                                        value={orderList.Has_this_Customer_faced_issues_with_orde__c} required
+                                        class="slds-p-horizontal_x-small" data-name="problem"></lightning-input-field>
+                                </lightning-layout-item>
+
+                                
+                                   
+                                         
+
+                                <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6">
+                                 <div class="slds-form_horizontal slds-form slds-grid slds-wrap">
+                                    <lightning-combobox
+                                        name="Lead Visit"
+                                        label="Add Lead Visit - Visit Id"
+                                        placeholder="Choose Lead Visit"
+                                        value={LeadVisitvalue}
+                                        onchange={onchangeleadVisit}
+                                        options={statusOptionsLeadVisit} >
+                                    </lightning-combobox>
+                                    <lightning-input-field field-name="Add_Lead_Visit_Visit_Id__c"
+                                        onchange={onchangeleadVisit} value={orderList.Add_Lead_Visit_Visit_Id__c}
+                                        class={fieldHidden}></lightning-input-field>
+                                    </div>
+                                </lightning-layout-item>
+                            </template>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Dispatch_Warehouse__c"
+                                    onchange={onchangeDispatchWarehouse} value={orderList.Dispatch_Warehouse__c}
+                                    class="slds-p-horizontal_x-small" required data-name="dispatchWarehouse"></lightning-input-field>
+                            </lightning-layout-item>
+                            <template if:true={isDisplayReceiptWarehouse}>
+                                <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                    large-device-size="6">
+                                    <lightning-input-field field-name="Retail_Warehouse__c"
+                                        onchange={onchangeReceiptWarehouse} value={orderList.Retail_Warehouse__c}
+                                        disabled={isDisplayReceiptWarehouse} class="slds-p-horizontal_x-small"
+                                        required data-name="receiptWarehouse"></lightning-input-field>
+                                </lightning-layout-item>
+                            </template>
+                            <template if:false={isDisplayReceiptWarehouse}>
+                                <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                    large-device-size="6">
+                                    <lightning-input-field field-name="Expected_Delivery_Date_Customer__c"
+                                        onchange={onchangeExpectedDeliveryDate}
+                                        value={orderList.Expected_Delivery_Date_Customer__c}
+                                        class="slds-p-horizontal_x-small"></lightning-input-field>
+                                </lightning-layout-item>
+
+                                <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                    large-device-size="6">
+                                    <lightning-input-field field-name="Freight_Charge_Bearer_values__c"
+                                        onchange={onchangeFreightCharge}
+                                        value={orderList.Freight_Charge_Bearer_values__c} disabled={isDisableFreightCharge}
+                                        class="slds-p-horizontal_x-small" data-name="freight" required></lightning-input-field>
+                                </lightning-layout-item>
+                            </template>
+                                <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                    large-device-size="6">
+                                    <lightning-input-field field-name="Prefered_Transport_Company__c"
+                                        onchange={onchangePreferedTransportCompany}
+                                        value={orderList.Prefered_Transport_Company__c}
+                                        class="slds-p-horizontal_x-small" data-name="preferedTranport" required></lightning-input-field>
+                                </lightning-layout-item>
+
+                                <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                    large-device-size="6">
+                                    <lightning-input-field field-name="Closest_Tranport_Branch__c"
+                                        onchange={onchangeClosestTransport} value={orderList.Closest_Tranport_Branch__c}
+                                        required data-name="closestTranport"></lightning-input-field>
+                                </lightning-layout-item>
+                            
+                        </lightning-layout>
+
+                        <lightning-card>
+
+                            <h3 slot="title" class="slds-align_absolute-center">
+                                <lightning-icon icon-name="standard:timesheet" alternative-text="Event"
+                                    size="small"></lightning-icon>
+                                &nbsp; Products
+                            </h3>
+                            <lightning-record-edit-form object-api-name="Retail_Order_Product__c" data-id="ProductForm">
+                                <lightning-messages></lightning-messages>
+                                <div class="slds-scrollable_x" style="height:100%;">
+                                    <div class="slds-m-around_medium">
+
+                                        <table class="slds-table slds-table_cell-buffer slds-table_bordered"
+                                            aria-labelledby="element-with-table-label other-element-with-table-label">
+                                            <thead>
+                                                <tr class="slds-line-height_reset">
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Product Group"
+                                                            style="width:120px;">Product Group</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Product" style="width:120px;">
+                                                            <span class="slds-text-color_destructive">*
+                                                            </span>Product
+                                                        </div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Hole Type"
+                                                            style="width:120px;">Hole Type</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Hole Spacing"
+                                                            style="width:120px;">Hole Spacing</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Std Pkg Sizes"
+                                                            style="width:120px;">Std Pkg Sizes</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Quantity"
+                                                            style="width:120px;"><span
+                                                                class="slds-text-color_destructive">*
+                                                            </span>Quantity</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Unit Price"
+                                                            style="width:120px;">Unit Price</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Discounted Unit Price"
+                                                            style="width:120px;">Discounted Unit Price</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Kg Rate" style="width:120px;">
+                                                            Kg Rate</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Discounted Kg Rate"
+                                                            style="width:120px;">Discounted Kg Rate</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Weight(kg)"
+                                                            style="width:120px;">Weight(kg)</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Sub Total"
+                                                            style="width:120px;">Sub Total</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Sub Total"
+                                                            style="width:120px;">Product Discount</div>
+                                                    </th>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Sub Total"
+                                                            style="width:120px;">Net Total for Product</div>
+                                                    </th>
+
+                                                    <template if:false={deleteAction}>
+                                                        <th class="" scope="col">
+                                                            <div class="slds-truncate" title="Action">Action</div>
+                                                        </th>
+                                                    </template>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <template for:each={productList} for:item="product" for:index="index">
+                                                    <tr key={product.id}>
+                                                        <td scope="row">
+                                                           <lightning-input-field field-name="Product_Group__c"
+                                                                value={product.Product_Group__c} data-index={index}
+                                                                data-name="productGroup"
+                                                                onchange={handleOnchangeProductGroup}
+                                                                variant="label-hidden" >
+                                                            </lightning-input-field>
+
+
+                                                            <!-- <div if:true={product.productComplete} class="slds-text-color_error slds-p-horizontal_x-small">
+                                                           Please Select Product</div> -->
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-combobox
+                                        name="Product"
+                                        label="Product"
+                                        placeholder="Choose Product"
+                                        value={product.productChoosenValue}
+                                        onchange={onchangeProduct} data-index={index} variant="label-hidden" 
+                                        options={product.relatedProductData} >
+                                    </lightning-combobox>
+                                   
+                                                            <lightning-input-field field-name="Product__c"
+                                                                value={product.Product__c} required
+                                                                variant="label-hidden" onchange={onchangeProduct}
+                                                                data-index={index} data-name="product"  class={fieldHidden}>
+                                                            </lightning-input-field>
+                                                        </td>
+
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="HoleType__c"
+                                                                value={product.HoleType__c} variant="label-hidden"
+                                                                data-index={index} onchange={onchangeHoleType}
+                                                                required={product.isMulchProductGroup} data-name="holeType">
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Hole_Spacing__c"
+                                                                value={product.Hole_Spacing__c} variant="label-hidden"
+                                                                data-index={index} onchange={onchangeHoleSapcing}
+                                                                required={product.isMulchProductGroup} data-name="holeSpacing">
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Std_Pkg_Sizes__c"
+                                                                value={product.Std_Pkg_Sizes__c} variant="label-hidden"
+                                                                data-index={index} onchange={onchangeStdPkgSizes}
+                                                                disabled={isDisableStdPkg}>
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Quantity__c"
+                                                                value={product.Quantity__c} required
+                                                                onchange={handleChangeQuantity} variant="label-hidden"
+                                                                data-index={index} data-name="quantity">
+                                                            </lightning-input-field>
+                                                            <!-- <div if:true={isErrorQuantity} class="slds-text-color_error slds-p-horizontal_x-small" style="margin-left: 148px;margin-top:-10px;">
+                                                                Please ensure Quantity is a multiple of Standard Packaging Size!</div> -->
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Unit_Price__c"
+                                                                value={product.Unit_Price__c} variant="label-hidden"
+                                                                data-index={index} onchange={onchangeUnitPrices}
+                                                                disabled>
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Discounted_Unit_Price__c"
+                                                                value={product.Discounted_Unit_Price__c}
+                                                                variant="label-hidden" data-index={index}
+                                                                onchange={onchangeDiscountedUnitPrice}>
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Kg_Rate__c"
+                                                                value={product.Kg_Rate__c} variant="label-hidden"
+                                                                data-index={index} disabled onchange={onchangeKgRate}>
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Discounted_Kg_Rate__c"
+                                                                value={product.Discounted_Kg_Rate__c}
+                                                                variant="label-hidden" disabled data-index={index}
+                                                                onchange={onchangeDiscountedKgRate}>
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Weight_Kg__c"
+                                                                value={product.Weight_Kg__c} variant="label-hidden"
+                                                                data-index={index} disabled onchange={onchangeWeight}>
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Sub_Total__c"
+                                                                value={product.Sub_Total__c} disabled variant="label-hidden"
+                                                                data-index={index} onchange={onchangeSubTotal}>
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Product_Discount__c"
+                                                                value={product.Product_Discount__c}
+                                                                variant="label-hidden" disabled data-index={index}
+                                                                onchange={onchangeProductDiscount}>
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <td scope="row">
+                                                            <lightning-input-field field-name="Net_Total_for_Product__c"
+                                                                value={product.Net_Total_for_Product__c}
+                                                                variant="label-hidden" disabled data-index={index}
+                                                                onchange={onchangeNetTotal}>
+                                                            </lightning-input-field>
+                                                        </td>
+                                                        <template if:false={deleteAction}>
+                                                            <td>
+                                                                <lightning-icon icon-name="action:delete"
+                                                                    alternative-text="Delete Row" size="small"
+                                                                    title="Delete Row" onclick={removeRow}
+                                                                    data-index={index}>
+                                                                </lightning-icon>
+                                                            </td>
+                                                        </template>
+                                                    </tr>
+                                                </template>
+
+                                            </tbody>
+                                        </table>
+
+                                        <div if:true={isErrorProduct}
+                                            class="slds-text-color_error slds-p-horizontal_x-small">
+                                            Please include product information</div>
+                                    </div>
+                                </div>
+                                &nbsp;&nbsp;
+
+                            </lightning-record-edit-form>
+                            &nbsp;&nbsp;
+                            <lightning-button icon-name="action:new" variant="success" label="Add New" onclick={addRow}
+                                class="margin-left"></lightning-button>
+
+                        </lightning-card>
+                        <p class="matchTitle slds-section__title slds-theme_shade matchTitleShade">Payment Information</p>
+                        <lightning-layout multiple-rows="true" class="matchContent">
+                            
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Sub_Total__c" onchange={onchangeSubTotal}
+                                    value={orderList.Sub_Total__c} disabled
+                                    class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Order_Discount__c" onchange={onchangeOrder}
+                                    value={orderList.Order_Discount__c} class="slds-p-horizontal_x-small"
+                                    disabled={isDisplayWarehouse} required></lightning-input-field>
+                            </lightning-layout-item>
+
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Net_Total__c" onchange={onchangeNetTotal}
+                                    value={orderList.Net_Total__c} disabled
+                                    class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Credit__c" onchange={onchangeCredit}
+                                    value={orderList.Credit__c}
+                                    class="slds-p-horizontal_x-small"></lightning-input-field>
+                            </lightning-layout-item>
+                            <template if:false={isDisplayReceiptWarehouse}>
+                                <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                    large-device-size="6">
+                                    <lightning-input-field field-name="Advance__c" onchange={onchangeAdvance}
+                                        value={orderList.Advance__c} class="slds-p-horizontal_x-small"
+                                        required></lightning-input-field>
+                                </lightning-layout-item>
+
+                                <template if:true={isAfterAdvance}>
+                                    <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                        large-device-size="6">
+                                        <lightning-input-field field-name="Reference_Number__c"
+                                            onchange={onchangeReferenceNumber} value={orderList.Reference_Number__c}
+                                            class="slds-p-horizontal_x-small"></lightning-input-field>
+                                    </lightning-layout-item>
+
+                                    <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                        large-device-size="6">
+                                        <lightning-input-field field-name="Advance_Payment_Date__c"
+                                            onchange={onchangeAdvancePaymentDate}
+                                            value={orderList.Advance_Payment_Date__c}
+                                            class="slds-p-horizontal_x-small"></lightning-input-field>
+                                    </lightning-layout-item>
+                                </template>
+                            </template>
+
+
+
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                large-device-size="6">
+                                <lightning-input-field field-name="Comments__c" onchange={onchangeCommemts}
+                                    value={orderList.Comments__c}></lightning-input-field>
+                            </lightning-layout-item>
+                            <template if:false={isDisplayReceiptWarehouse}>
+                                <template if:true={isAfterAdvance}>
+                                    <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                        large-device-size="6">
+                                        <lightning-input-field field-name="Advance_Payment_Receipt__c"
+                                            onchange={onchangeAdvancePaymentReceipt}
+                                            value={orderList.Advance_Payment_Receipt__c}
+                                            class="slds-p-horizontal_x-small"></lightning-input-field>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="12" small-device-size="12" medium-device-size="12"
+                                        large-device-size="6">
+                                        <lightning-input-field field-name="Status__c" onchange={onchangeOrderStatus}
+                                            value={orderList.Status__c} class={fieldHidden}></lightning-input-field>
+                                    </lightning-layout-item>
+                                </template>
+                            </template>
+                        </lightning-layout>
+
+                        <footer class="slds-modal__footer slds-text-align_center">
+                            <lightning-button label="Cancel" variant="neutral" onclick={closeQuickAction}
+                                style="margin:10px"></lightning-button>
+                            <!--<lightning-button variant="brand"  name="save" label="Save" onclick={handleSaves}></lightning-button>-->
+
+                            <lightning-button class="slds-m-top_small" variant="brand"  name="Save"
+                                label="Save" onclick={validateError} disabled={saveBool}>
+                            </lightning-button>
+
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </lightning-record-edit-form>
+</template>

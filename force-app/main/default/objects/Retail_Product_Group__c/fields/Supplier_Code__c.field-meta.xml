@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Supplier_Code__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Add Supplier - Supplier Code</label>
+    <referenceTo>Retail_Supplier__c</referenceTo>
+    <relationshipLabel>Retail Product Groups</relationshipLabel>
+    <relationshipName>Retail_Product_Groups</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

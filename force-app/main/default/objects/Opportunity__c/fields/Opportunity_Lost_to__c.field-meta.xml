@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Opportunity_Lost_to__c</fullName>
+    <externalId>false</externalId>
+    <label>Sale Lost Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Price too high</fullName>
+                <default>false</default>
+                <label>Price too high</label>
+            </value>
+            <value>
+                <fullName>Bad review of product</fullName>
+                <default>false</default>
+                <label>Bad review of product</label>
+            </value>
+            <value>
+                <fullName>Delivery time too long</fullName>
+                <default>false</default>
+                <label>Delivery time too long</label>
+            </value>
+            <value>
+                <fullName>Bad reputation of dealer/distributor</fullName>
+                <default>false</default>
+                <label>Bad reputation of dealer/distributor</label>
+            </value>
+            <value>
+                <fullName>Wanted to buy on credit</fullName>
+                <default>false</default>
+                <label>Wanted to buy on credit</label>
+            </value>
+            <value>
+                <fullName>Already lined with different company</fullName>
+                <default>false</default>
+                <label>Already lined with different company</label>
+            </value>
+            <value>
+                <fullName>Not available in area</fullName>
+                <default>false</default>
+                <label>Not available in area</label>
+            </value>
+            <value>
+                <fullName>Not available with preferred retailer</fullName>
+                <default>false</default>
+                <label>Not available with preferred retailer</label>
+            </value>
+            <value>
+                <fullName>Subsidy not coming on time</fullName>
+                <default>false</default>
+                <label>Subsidy not coming on time</label>
+            </value>
+            <value>
+                <fullName>Others</fullName>
+                <default>false</default>
+                <label>Others</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Converted_visits_Link_Order_ID</fullName>
+    <columns>NAME</columns>
+    <columns>Date__c</columns>
+    <columns>Lead_Name__c</columns>
+    <columns>Level_of_Interest__c</columns>
+    <columns>Follow_up_Date__c</columns>
+    <columns>Visit_Counter__c</columns>
+    <columns>New_Lead__c</columns>
+    <columns>New_Lead_Counter__c</columns>
+    <columns>Old_Lead_Counter__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Level_of_Interest__c</field>
+        <operation>equals</operation>
+        <value>Incomplete Data</value>
+    </filters>
+    <label>Converted visits: Link Order ID</label>
+</ListView>

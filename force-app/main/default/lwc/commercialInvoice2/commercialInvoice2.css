@@ -1,0 +1,49 @@
+.customerHeader{
+    width: 60% !important;
+    height: 100% !important;
+    max-width: 100rem !important;
+    padding-bottom:55px !important;
+}
+.matchTitle{
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    line-height: 1.875rem;
+    margin-left: 10px;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+
+.matchTitleShade{
+    background-color: rgb(243, 243, 243)
+}
+
+
+.matchContent{
+    padding-left: 1.875rem;
+    padding-right: 1.875rem;
+    padding-top: 0.5rem;
+    
+}
+
+.removeImage {
+    border-radius: 100%;
+    padding: 0px 4px;
+    margin: 8px 2px 8px 8px;
+    color: #9f201b;
+    cursor: pointer;
+}
+
+.removeImagee {
+    border-radius: 100%;
+    padding: 0px 4px;
+    margin: 8px 2px 8px 8px;
+    
+    color: #9f201b;
+    cursor: pointer;
+}
+
+.removeIcon{
+    width: 10px;
+    height: 10px;
+}

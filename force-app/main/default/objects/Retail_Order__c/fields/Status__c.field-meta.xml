@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Exec Discount Approval</fullName>
+                <default>false</default>
+                <label>Awaiting Discount Approval</label>
+            </value>
+            <value>
+                <fullName>Awaiting Exec Approval</fullName>
+                <default>false</default>
+                <label>Awaiting Credit Approval</label>
+            </value>
+            <value>
+                <fullName>Awaiting Accounts</fullName>
+                <default>false</default>
+                <label>Awaiting Accounts Approval</label>
+            </value>
+            <value>
+                <fullName>Payment Approved</fullName>
+                <default>false</default>
+                <label>Payment Approved</label>
+            </value>
+            <value>
+                <fullName>Upload Packing List</fullName>
+                <default>false</default>
+                <label>Upload Packing List</label>
+            </value>
+            <value>
+                <fullName>Packing List in Process</fullName>
+                <default>false</default>
+                <label>Packing List in Process</label>
+            </value>
+            <value>
+                <fullName>Production Approved</fullName>
+                <default>false</default>
+                <label>Production Approved</label>
+            </value>
+            <value>
+                <fullName>Ready For Dispatch</fullName>
+                <default>false</default>
+                <label>Commercial : Ready For Dispatch</label>
+            </value>
+            <value>
+                <fullName>Dispatched Awaiting Final Payment</fullName>
+                <default>false</default>
+                <label>Dispatched Awaiting Final Payment</label>
+            </value>
+            <value>
+                <fullName>Completed</fullName>
+                <default>false</default>
+                <label>Completed</label>
+            </value>
+            <value>
+                <fullName>Hold</fullName>
+                <default>false</default>
+                <label>Hold</label>
+            </value>
+            <value>
+                <fullName>Canceled</fullName>
+                <default>false</default>
+                <label>Canceled</label>
+            </value>
+            <value>
+                <fullName>Awaiting Manager Approval</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Awaiting Manager Approval</label>
+            </value>
+            <value>
+                <fullName>Commercial : Instock - Prepare Invoice</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Commercial : Instock - Prepare Invoice</label>
+            </value>
+            <value>
+                <fullName>Confirm Stock Receipt</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Confirm Stock Receipt</label>
+            </value>
+            <value>
+                <fullName>Exec Credit Approval</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Exec Credit Approval</label>
+            </value>
+            <value>
+                <fullName>Exec Return Approval</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Exec Return Approval</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,117 @@
+<template>
+    <lightning-messages> </lightning-messages>
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="customerHeader slds-modal__container">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeQuickAction}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse" size="small" ></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button> 
+                    <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate slds-text-heading--medium">New Upload Shipment Tracking Info</h2>
+                </header>
+                
+                
+                <div class=" slds-modal__content" id="modal-content-id-1">
+                    <div class="matchInnerPadding"> 
+                    <p class="matchTitle slds-section__title slds-theme_shade matchTitleShade">Information</p>
+                        <lightning-record-edit-form record-id={recordId} object-api-name="Retail_Upload_Shipment_tracking_Info__c" onsuccess={handleSuccess} onsubmit={handleSubmit}>
+
+                    <lightning-layout multiple-rows="true" class="matchContent">
+                      
+                        <!-- <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                            <lightning-input-field field-name="OwnerId"  class="slds-p-horizontal_x-small" required ></lightning-input-field>  
+                        </lightning-layout-item> -->
+
+                        <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                            <lightning-input-field field-name="Select_Order__c" onchange={handleSelectedOrder} class="slds-p-horizontal_x-small" ></lightning-input-field>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                            <lightning-input-field field-name="Dispatch_Date__c" onchange={handleDispatchDate} class="slds-p-horizontal_x-small" ></lightning-input-field>
+                        </lightning-layout-item>
+
+                        <!-- custome fiels to check -->
+                        <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                            <lightning-input-field field-name="Customer_s_Prefered_Transport_Company__c" value={preferedTrp}  class="slds-p-horizontal_x-small"  disabled></lightning-input-field>  
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                            <lightning-input-field field-name="Transport_Company__c" onchange={handleTransportCompany} class="slds-p-horizontal_x-small" ></lightning-input-field>  
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                            <lightning-input-field field-name="Consignment_Tracking_Number__c" onchange={handleConsignmentTracking} class="slds-p-horizontal_x-small"></lightning-input-field>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                            <lightning-input-field field-name="Vehicle_Number__c" onchange={handleVehicleNumber} class="slds-p-horizontal_x-small" ></lightning-input-field>  
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                            <lightning-input-field field-name="Country_Code__c" onchange={handleCountryCode} class="slds-p-horizontal_x-small" ></lightning-input-field>  
+                        </lightning-layout-item> 
+
+                        <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                            <lightning-input-field field-name="Driver_Phone_Number__c" onchange={handelDriverPhone} class="slds-p-horizontal_x-small" ></lightning-input-field>  
+                        </lightning-layout-item> 
+
+                        <template if:true={otherComapyDisable}>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                                <lightning-input-field field-name="Other_Transport_Company__c" onchange={handleOtherTransportCompany} class="slds-p-horizontal_x-small" ></lightning-input-field>  
+                            </lightning-layout-item>
+                       </template> 
+
+                        <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                            <lightning-input-field field-name="Has_Been_Dispatched__c" onchange={handleHasbeenDispatched} class="slds-p-horizontal_x-small" required></lightning-input-field>  
+                        </lightning-layout-item>
+
+                        <!-- <lightning-input type="file" onchange={onFileUpload}  name="uploadFile" label="LR from transporter">  
+                        </lightning-input> -->
+
+                        <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                            <lightning-input type="file" style="padding-left: 3px;"
+                           label="LR from transporter"
+                           onchange={handleFileUploaded}
+                           multiple >
+                            </lightning-input>
+                            <div>
+                              <template if:true={filesData}>
+                                <template for:each={filesData} for:item="imgName" for:index="index">
+                                    <tr key={imgName.fileName}><td>  {imgName.fileName}
+                                     <span key={imgName.fileName} data-id={index} onclick={removeReceiptImage} class="removeImage" >x</span></td></tr>&nbsp;&nbsp;
+                                     <!-- <lightning-icon key={imgName.fileName} icon-name="action:delete" alternative-text="Delete" title="Delete" onclick={removeReceiptImage} class="removeImage"></lightning-icon> -->
+                                 </template>
+                                   </template>
+                                </div>
+                                </lightning-layout-item>
+
+                      
+                    </lightning-layout>
+                    <br/>
+                    <footer class="slds-modal__footer slds-text-align_center">
+                        <lightning-button label="Cancel" variant="neutral" onclick={closeQuickAction} style="margin:10px"></lightning-button> 
+
+                        <lightning-button
+                        class="slds-m-top_small"
+                        variant="brand"
+                        type="submit"
+                        name="save"
+                        label="save"
+                       
+                    >
+                    </lightning-button>
+                    </footer>
+                    <!--   <div class="slds-backdrop slds-backdrop_open"></div> -->
+                </lightning-record-edit-form>
+                </div>
+                </div>
+        </div>
+        <template if:true={showSpinner} >
+            <lightning-spinner alternative-text="Loading" size="medium" class="spinnerClass"></lightning-spinner>
+        </template>  
+    </section>    
+    <div class="slds-backdrop slds-backdrop_open"></div> 
+    <!-- <template if:true={showSpinner} >
+        <lightning-spinner alternative-text="Loading" size="medium" class="spinnerClass"></lightning-spinner>
+    </template>                   -->
+</template>

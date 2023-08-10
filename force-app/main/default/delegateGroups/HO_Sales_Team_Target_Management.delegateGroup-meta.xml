@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DelegateGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>HO Sales Team Target Management</label>
+    <loginAccess>true</loginAccess>
+    <roles>Quality Inspector</roles>
+    <roles>Area Sales Manager (A’Bad)</roles>
+    <roles>Area Sales Manager (Nasik)​</roles>
+    <roles>ASM (Pune)</roles>
+    <roles>ASM (Solapur)</roles>
+    <roles>ASM Anantapur</roles>
+    <roles>ASM Belgaum</roles>
+    <roles>ASM Western RJ</roles>
+    <roles>Cluster Sales ​Manager (A’Bad)</roles>
+    <roles>Cluster Sales ​Manager (Jalna)</roles>
+    <roles>CSM Northern RJ</roles>
+    <roles>H.O. Sales Team</roles>
+    <roles>Manager Quality</roles>
+    <roles>Sales Manager (MP)</roles>
+    <roles>Sales Manager Central</roles>
+    <roles>Sales Manager North</roles>
+    <roles>Sales Manager South</roles>
+    <roles>SE (Chikkaballapura)</roles>
+    <roles>SE (Jalgaon)</roles>
+    <roles>SE (Nasik)</roles>
+    <roles>SE (Solapur)</roles>
+    <roles>SE - A&apos;bad</roles>
+    <roles>SE Bidar</roles>
+    <roles>SE Jaipur</roles>
+    <roles>SE Jalna/Beed/Parbhani</roles>
+    <roles>SE Northern RJ</roles>
+    <roles>SE Pune</roles>
+    <roles>SE Sangli</roles>
+    <roles>SE(A’Nagar)</roles>
+</DelegateGroup>

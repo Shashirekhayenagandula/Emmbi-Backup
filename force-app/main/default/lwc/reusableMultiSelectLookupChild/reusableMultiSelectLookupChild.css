@@ -1,0 +1,9 @@
+.custom-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; /* Adjust alignment as needed */
+}
+
+.custom-gap {
+    width: 20px; /* Adjust the width of the gap as needed */
+}

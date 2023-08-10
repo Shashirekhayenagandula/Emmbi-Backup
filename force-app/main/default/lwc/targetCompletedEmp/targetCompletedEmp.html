@@ -1,0 +1,34 @@
+<template>
+  
+    
+    <lightning-card title="Employee Target Vs Achivement Details" >
+        <div style="padding: 10px;">
+        <lightning-combobox
+                
+                value=""
+                placeholder="Select List Type"
+                options={options}
+                onchange={handleChange}
+                
+        ></lightning-combobox>
+        </div>
+    </lightning-card>
+    
+    <template if:true={isVisiable}>
+       
+        <lightning-card title="Target Details For Selected List">
+
+            <div style="height: 300px;" class="slds-p-left_xxx-large">
+    
+                <lightning-datatable key-field=Id, columns={columns} data={data} hide-checkbox-column=true></lightning-datatable>
+    
+            </div>
+            <br>
+            <div style="padding: 15px;">
+            <lightning-button variant="brand" label="Export Data" class="slds-align_absolute-center" onclick={downloadCSVFile}></lightning-button>
+            </div>
+        </lightning-card>
+        
+
+    </template>
+</template>

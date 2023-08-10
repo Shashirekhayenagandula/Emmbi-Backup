@@ -1,0 +1,10 @@
+<template>
+  <lightning-input label="Search" type="search" value={searchKey} onchange={SearchAccountHandler} variant="medium"></lightning-input>
+  <template if:true={accounts}>
+    <ul>
+      <template for:each={accounts} for:item="result">
+        <li key={accounts.Id} onclick={handleResultClick} data-id={accounts.Id}>{accounts.Name}</li>
+      </template>
+    </ul>
+  </template>
+</template>

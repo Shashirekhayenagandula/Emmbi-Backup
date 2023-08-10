@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Inactive_duo_to_reason_for_inactive_stag</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF( ISPICKVAL( Stages__c , &apos;Inactive&apos;), ISPICKVAL( Inactive_Due_To__c , &apos;&apos;) ,false )</errorConditionFormula>
+    <errorMessage>Please fill Inactive due to reason for Inactive stage</errorMessage>
+</ValidationRule>

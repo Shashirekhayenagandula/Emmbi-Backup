@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Quality_Check_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Quality Check Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pending Quality Check</fullName>
+                <default>false</default>
+                <label>Pending Quality Check</label>
+            </value>
+            <value>
+                <fullName>Quality Approved</fullName>
+                <default>false</default>
+                <label>Quality Approved</label>
+            </value>
+            <value>
+                <fullName>Quality Failed</fullName>
+                <default>false</default>
+                <label>Quality Failed</label>
+            </value>
+            <value>
+                <fullName>Deactivated</fullName>
+                <default>false</default>
+                <label>Deactivated</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

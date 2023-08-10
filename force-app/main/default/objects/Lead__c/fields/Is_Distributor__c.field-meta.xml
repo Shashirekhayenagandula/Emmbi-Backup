@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Distributor__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Sometimes the &apos;Farmer&apos; is actually our distributor buying material on their own name for stock holding. This marks whether the person is an end-user or a reseller/distributor.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Tick this box if this Farmer is an Avana Distributor</inlineHelpText>
+    <label>Is Distributor?</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

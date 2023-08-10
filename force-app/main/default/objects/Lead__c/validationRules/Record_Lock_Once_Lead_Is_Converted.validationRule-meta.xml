@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Record_Lock_Once_Lead_Is_Converted</fullName>
+    <active>false</active>
+    <description>Can&apos;t Change The Stages After Converted</description>
+    <errorConditionFormula>AND( IsConverted__c  = true, TEXT(PRIORVALUE( Stages__c )) = &apos;Converted&apos;,ISCHANGED( Stages__c ))</errorConditionFormula>
+    <errorMessage>Your record has been Locked. You Can&apos;t Change.</errorMessage>
+</ValidationRule>

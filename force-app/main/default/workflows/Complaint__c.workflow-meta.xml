@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Complaint_Approved_Email_Alert</fullName>
+        <description>Complaint Approved Email Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Complaint_Approved_EmailTemplate</template>
+    </alerts>
+    <alerts>
+        <fullName>Complaint_Change_Owner_Email_Alert</fullName>
+        <description>Complaint Change Owner Email Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <recipients>
+            <recipient>ram.dhakane@emmbi.com</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>yash.punjabi@emmbi.com</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Complaint_Owner_Change_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>Complaint_Pending_Approval_Email_Alert</fullName>
+        <description>Complaint Pending Approval Email Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>CEO_Avana</recipient>
+            <type>role</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Complaint_Pending_Approval_Email_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>Follow_up_date_email_alert_before_1_day</fullName>
+        <description>Follow up date email alert before 1 day</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Complaint_Follow_up_date_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>Follow_up_date_email_alert_on_that_day</fullName>
+        <description>Follow up date email alert on that day</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Complaint_Follow_up_date_Template</template>
+    </alerts>
+    <alerts>
+        <fullName>Urgent_Complaint_Email_Alert</fullName>
+        <description>Urgent Complaint Email Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>CEO_Avana</recipient>
+            <type>role</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Urgent_Complaint_Email_Template</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>RecordType_Update</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Details_Complaint</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>RecordType Update</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>Follow Up Date Email Alert for Complaint</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Complaint__c.Follow_up_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <description>Email send to Complaint owner for follow up date</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Follow_up_date_email_alert_before_1_day</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Complaint__c.Follow_up_Date__c</offsetFromField>
+            <timeLength>-1</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Follow_up_date_email_alert_on_that_day</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Complaint__c.Follow_up_Date__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>RecordType change</fullName>
+        <actions>
+            <name>RecordType_Update</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Complaint__c.CreatedDate</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

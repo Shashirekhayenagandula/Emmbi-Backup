@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dispatch_Dealer_Distributor_should_match</fullName>
+    <active>true</active>
+    <description>The dealer/distributor picked in this Product Information should match with the Dealer/Distributor selected in the Dispatch it is being added to.</description>
+    <errorConditionFormula>NOT(ISBLANK(Distributor__c)) &amp;&amp;
+NOT(ISBLANK(Dealer__c)) &amp;&amp;
+NOT(ISBLANK(Dispatch_Detail__c)) &amp;&amp;
+(
+Dispatch_Detail__r.Distributor__r.Name &lt;&gt; Distributor__c ||
+    (
+    NOT(ISBLANK(Dispatch_Detail__r.Dealer__c)) &amp;&amp;
+    Dispatch_Detail__r.Dealer__c &lt;&gt; Dealer__c
+    )
+)</errorConditionFormula>
+    <errorDisplayField>Dispatch_Detail__c</errorDisplayField>
+    <errorMessage>Distributor / Dealer of this Product Information is not matching Distributor / Dealer of the Dispatch selected.</errorMessage>
+</ValidationRule>

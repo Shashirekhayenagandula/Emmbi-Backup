@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <activeVersionNumber>2</activeVersionNumber>
+    <description>Input - Dispatch in Accounts Approval stage. Dispatch should have the PriceBook filled out already.
+Output - Updates the Product Informations of this Dispatch to have the correct price.</description>
+    <masterLabel>Dispatch - Product Info price update acc to pricebook</masterLabel>
+</FlowDefinition>

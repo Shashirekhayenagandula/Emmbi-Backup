@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Not_match_Dealer_with_Tehsils_2</fullName>
+    <active>false</active>
+    <description>Not_match_Dealer_with_Tehsils_2</description>
+    <errorConditionFormula>AND( Dealer_with_Tehsil__r.Tehsil_Name__r.Name  &lt;&gt;  Tehsil__c , Dealer_with_Tehsil__r.Tehsil_Name__r.Name  &lt;&gt; Null)</errorConditionFormula>
+    <errorMessage>Dealer with Tehsil and Tehsil is not matched</errorMessage>
+</ValidationRule>

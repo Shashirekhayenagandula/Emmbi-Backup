@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dealer_and_Distributor_Should_Match</fullName>
+    <active>true</active>
+    <description>For example, cannot pick dealer of Distributor A if Distributor B is selected in the Dispatch.</description>
+    <errorConditionFormula>NOT(ISBLANK(Dealer__c)) &amp;&amp; NOT(ISBLANK(Distributor__c)) &amp;&amp;  Dealer__r.Distributor__c &lt;&gt; Distributor__c</errorConditionFormula>
+    <errorDisplayField>Dealer__c</errorDisplayField>
+    <errorMessage>This is the Dealer of some other Distributor.</errorMessage>
+</ValidationRule>

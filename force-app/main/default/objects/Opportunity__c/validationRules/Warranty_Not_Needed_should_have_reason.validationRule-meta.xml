@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Warranty_Not_Needed_should_have_reason</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(Warranty_Not_Needed__c, ISBLANK(Warranty_Not_Needed_Reason__c))</errorConditionFormula>
+    <errorDisplayField>Warranty_Not_Needed__c</errorDisplayField>
+    <errorMessage>Warranty Not Needed Reason must be filled out.</errorMessage>
+</ValidationRule>

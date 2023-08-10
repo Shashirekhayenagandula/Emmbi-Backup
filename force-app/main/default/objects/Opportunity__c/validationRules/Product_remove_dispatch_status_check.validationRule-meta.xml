@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_remove_dispatch_status_check</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT(ISBLANK(PRIORVALUE(Dispatch_Detail__c)))
+&amp;&amp;
+ISCHANGED(Dispatch_Detail__c)
+&amp;&amp;
+PRIORVALUE(Can_Edit_Dispatch__c) = FALSE</errorConditionFormula>
+    <errorDisplayField>Dispatch_Detail__c</errorDisplayField>
+    <errorMessage>Dispatch should be in submit for approval stage to remove product.</errorMessage>
+</ValidationRule>

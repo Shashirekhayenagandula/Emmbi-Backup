@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_Month_Target__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( Current_Month__c = 4,  April_Bazar_Day__c + April_Group_Meeting_Target__c + April_Individual_Meeting_Target__c + April_Testimonial_Videos_Photos_Target__c + April_Pond_Visit_Target__c ,  IF(Current_Month__c = 5, May_Bazar_Day__c+May_Group_Meeting_Target__c+May_Individual_Meeting_Target__c+May_Pond_Visit_Target__c+May_Testimonial_Videos_Photos_Target__c,  IF(Current_Month__c = 6, June_Bazar_Day__c+June_Group_Meeting_Target__c+June_Individual_Meeting_Target__c+June_Pond_Visit_Target__c+June_Testimonial_Videos_Photos_Target__c,  IF(Current_Month__c = 7, July_Bazar_Day__c+July_Group_Meeting_Target__c+July_Individual_Meeting_Target__c+July_Pond_Visit_Target__c+July_Testimonial_Videos_Photos_Target__c,  IF(Current_Month__c = 8, August_Bazar_Day__c+August_Group_Meeting_Target__c+August_Individual_Meeting_Target__c+August_Pond_Visit_Target__c+August_Testimonial_Videos_Photos_Targe__c,  IF(Current_Month__c = 9, September_Bazar_Day__c+September_Group_Meeting_Target__c+September_Individual_Meeting_Target__c+September_Pond_Visit_Target__c+September_Testimonial_Videos_Photos_Ta__c,  IF(Current_Month__c = 10, October_Bazar_Day__c + October_Group_Meeting_Target__c + October_Individual_Meeting_Target__c + October_Pond_Visit_Target__c + October_Testimonial_Videos_Photos_Targ__c,  IF(Current_Month__c = 11, November_Bazar_Day__c + November_Group_Meeting_Target__c + November_Individual_Meeting_Target__c + November_Pond_Visit_Target__c	+ November_Testimonial_Videos_Photos_Tar__c ,  IF(Current_Month__c = 12, December_Bazar_Day__c+December_Group_Meeting_Target__c+December_Individual_Meeting_Target__c+December_Pond_Visit_Target__c+December_Testimonial_Videos_Photos_Tar__c,  IF(Current_Month__c = 1, January_Bazar_Day__c+January_Group_Meeting_Target__c+January_Individual_Meeting_Target__c+January_Pond_Visit_Target__c+January_Testimonial_Videos_Photos_Targ__c,  IF(Current_Month__c = 2, February_Bazar_Day__c+February_Group_Meeting_Target__c+February_Individual_Meeting_Target__c+February_Pond_Visit_Target__c+February_Testimonial_Videos_Photos_Tar__c,  IF(Current_Month__c = 3, March_Bazar_Day__c+March_Group_Meeting_Target__c+March_Individual_Meeting_Target__c+March_Pond_Visit_Target__c+March_Testimonial_Videos_Photos_Target__c, 0) ) ) ) ) ) ) ) ) ) ) )</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Current Month Target</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

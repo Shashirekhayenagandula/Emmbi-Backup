@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Visit_Date_and_Interest_level_required</fullName>
+    <active>true</active>
+    <description>Making visit related fields required once a visit is done (i.e. visit date is filled out)</description>
+    <errorConditionFormula>OR(AND( NOT(ISBLANK( Visit_Date__c )) ,ISPICKVAL( Interest_Level_after_visit__c , &apos;&apos;)), 
+
+AND( NOT(ISPICKVAL( Interest_Level_after_visit__c , &apos;&apos;)), ISBLANK( Visit_Date__c )))</errorConditionFormula>
+    <errorDisplayField>Interest_Level_after_visit__c</errorDisplayField>
+    <errorMessage>Please fill out Interest Level field and visit date if you have visited this pond.</errorMessage>
+</ValidationRule>

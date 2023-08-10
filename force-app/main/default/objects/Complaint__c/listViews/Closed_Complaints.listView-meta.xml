@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closed_Complaints</fullName>
+    <columns>NAME</columns>
+    <columns>Complaint_Type_New__c</columns>
+    <columns>Urgent__c</columns>
+    <columns>Inactive_Date__c</columns>
+    <columns>Inactive_Due_To__c</columns>
+    <columns>Complaint_Closed_Date__c</columns>
+    <columns>Resolution__c</columns>
+    <columns>MaterialTypeprovided__c</columns>
+    <columns>QtySqMtr__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Stages__c</field>
+        <operation>equals</operation>
+        <value>Closed without OTP,Closed with OTP</value>
+    </filters>
+    <label>Closed Complaints</label>
+</ListView>

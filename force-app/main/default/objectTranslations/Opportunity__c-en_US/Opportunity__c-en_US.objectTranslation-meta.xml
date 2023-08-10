@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Product Information</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Product Information</value>
+    </caseValues>
+    <layouts>
+        <layout>Jalasanchay Layout</layout>
+        <sections>
+            <label></label>
+            <section>Address</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>CRM Calling</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Commercial and Dispatch Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Installation Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Lost order</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Product Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Visit Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Warranty Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Retail Products Layout</layout>
+        <sections>
+            <label></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Address Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Lost Order</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Product Information</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label></label>
+        <name>Jalasanchay</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Murughas</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Dealer_Distributor_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Dealer_Distributor_for_Converted</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Dealer_Distributor_is_active</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Dispatch_Dealer_Distributor_should_match</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Dispatch_Invoice_Prices_Not_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Dispatch_add_only_Interested_Farmers</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Invoice_Format</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Invoice_Num_and_Date_for_Converted</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Lost_Reason_Required_for_Not_Interested</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Not_match_Dealer_with_Tehsils</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Not_match_Dealer_with_Tehsils_2</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Payment_Received_Amount_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Product_add_dispatch_status_check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Product_remove_dispatch_status_check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Qty_not_empty</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Quotation_Given_and_Quoted_Rate_required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Tentative_date_required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Visit_Date_and_Interest_level_required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Warranty_Not_Needed_should_have_reason</name>
+    </validationRules>
+    <webLinks>
+        <label></label>
+        <name>PDF_View</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Retail Warehouse</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Retail Warehouses</value>
+    </caseValues>
+    <layouts>
+        <layout>Retail Warehouse Layout</layout>
+        <sections>
+            <label></label>
+            <section>Address</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Point of Contact</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Phone_Number_10_digit_validation</name>
+    </validationRules>
+</CustomObjectTranslation>

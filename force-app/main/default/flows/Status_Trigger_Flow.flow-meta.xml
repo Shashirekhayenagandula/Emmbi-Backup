@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Accounts_Email</name>
+        <label>Accounts Email</label>
+        <locationX>314</locationX>
+        <locationY>815</locationY>
+        <actionName>Dispatch__c.Advance_Approval_Status_Email</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Initial_Dispatch_Mail_0</targetReference>
+        </connector>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <name>Email_for_Invoice</name>
+        <label>Email for Invoice</label>
+        <locationX>842</locationX>
+        <locationY>695</locationY>
+        <actionName>Dispatch__c.Invoice_Stage_Email</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Email_Product_Info_Owner_Dispatch_Approved</targetReference>
+        </connector>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <description>Assuming the owner of one of the Product Informations in this dispatch is the field salesperson in the area. This will email them to announce this dispatch.</description>
+        <name>Email_Product_Info_Owner_About_Dispatch</name>
+        <label>Email Product Info Owner About Dispatch</label>
+        <locationX>314</locationX>
+        <locationY>1055</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>Dispatch_Announce_to_Field_Salesperson</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>Get_Any_One_Product_Information_for_this_Dispatch_0.Lead__r.Owner:User.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>Dispatch_Announce_To_Field_Salesperson_Subject</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <name>Email_Product_Info_Owner_Dispatch_Approved</name>
+        <label>Email Product Info Owner Dispatch Approved</label>
+        <locationX>842</locationX>
+        <locationY>815</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>Dispatch_Approval_Announce_to_Field_Salesperson</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>Get_Any_One_Product_Information_for_this_Dispatch_0.Lead__r.Owner:User.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>Dispatch_Announce_To_Field_Salesperson_Subject</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <name>Initial_Dispatch_Mail_0</name>
+        <label>Initial Dispatch Mail</label>
+        <locationX>314</locationX>
+        <locationY>935</locationY>
+        <actionName>Dispatch__c.Dispatch_Initial_Email</actionName>
+        <actionType>emailAlert</actionType>
+        <connector>
+            <targetReference>Email_Product_Info_Owner_About_Dispatch</targetReference>
+        </connector>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <name>Submit_for_JS_Exec_Approval</name>
+        <label>Submit for JS Exec Approval</label>
+        <locationX>578</locationX>
+        <locationY>695</locationY>
+        <actionName>submit</actionName>
+        <actionType>submit</actionType>
+        <inputParameters>
+            <name>processDefinitionNameOrId</name>
+            <value>
+                <stringValue>Dispatch_Exec_Approval</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>objectId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>submitterId</name>
+            <value>
+                <elementReference>$Record.OwnerId</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <decisions>
+        <name>Status_Flow</name>
+        <label>Status Flow</label>
+        <locationX>710</locationX>
+        <locationY>575</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Submit_for_Approval</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Submit For Approval</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Reset_Dispatch_Values</targetReference>
+            </connector>
+            <label>Submit for Approval</label>
+        </rules>
+        <rules>
+            <name>Advance_Approval</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Advance Approval</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Price_from_Pricebook_and_Set_it_in_Product_Information</targetReference>
+            </connector>
+            <label>Advance Approval</label>
+        </rules>
+        <rules>
+            <name>Exec_Approval</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Exec Approval</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Submit_for_JS_Exec_Approval</targetReference>
+            </connector>
+            <label>Exec Approval</label>
+        </rules>
+        <rules>
+            <name>Invoice</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Invoice</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Email_for_Invoice</targetReference>
+            </connector>
+            <label>Invoice</label>
+        </rules>
+        <rules>
+            <name>Waiting_for_dispatch</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Hold</stringValue>
+                </rightValue>
+            </conditions>
+            <label>Waiting for dispatch</label>
+        </rules>
+    </decisions>
+    <description>Flow to perform automated actions, email notifications, etc. when the status changes for a Jalasanchay Dispatch</description>
+    <formulas>
+        <name>Current_Record_Link</name>
+        <dataType>String</dataType>
+        <expression>LEFT($Api.Enterprise_Server_URL_510, FIND( &apos;/services&apos;, $Api.Enterprise_Server_URL_510)) &amp; {!$Record.Id}</expression>
+    </formulas>
+    <interviewLabel>Status Trigger Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Dispatch Status Changes</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <description>Used for finding any one user who owns a product information in this dispatch. This is presumably the field salesperson in the area. We need this info to email this user that the dispatch is created.</description>
+        <name>Get_Any_One_Product_Information_for_this_Dispatch_0</name>
+        <label>Get Any One Product Information for this Dispatch</label>
+        <locationX>710</locationX>
+        <locationY>455</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Status_Flow</targetReference>
+        </connector>
+        <filters>
+            <field>Dispatch_Detail__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </filters>
+        <object>Opportunity__c</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Lead__c</queriedFields>
+    </recordLookups>
+    <recordUpdates>
+        <description>If the below conditions are met, that means this dispatch does not need an approval. So skip that step.</description>
+        <name>Check_Approval_Not_Required</name>
+        <label>Check Approval Not Required</label>
+        <locationX>710</locationX>
+        <locationY>335</locationY>
+        <connector>
+            <targetReference>Get_Any_One_Product_Information_for_this_Dispatch_0</targetReference>
+        </connector>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Exec Approval</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Previous_Outstanding__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Dispatch_Credit_Amount__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Exec_Approval__c</field>
+            <value>
+                <stringValue>Approved</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Invoice</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Intended for use when the status is reset to &quot;Submit for Approval&quot; from some other status.
+It should reset / clear some values so that the process can be run through again.</description>
+        <name>Reset_Dispatch_Values</name>
+        <label>Reset Dispatch Values</label>
+        <locationX>50</locationX>
+        <locationY>695</locationY>
+        <inputAssignments>
+            <field>Dispatch_Advance__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Dispatch_Date__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Exec_Approval__c</field>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Ready_for_Dispatch__c</field>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <startElementReference>Check_Approval_Not_Required</startElementReference>
+    <status>Active</status>
+    <subflows>
+        <description>For all product informations in this flow, it will get the appropriate price from the Pricebook selected in this Dispatch and set the &quot;Minimum Required Rate&quot; field in the product info accordingly.</description>
+        <name>Get_Price_from_Pricebook_and_Set_it_in_Product_Information</name>
+        <label>Get Price from Pricebook and Set it in Product Information</label>
+        <locationX>314</locationX>
+        <locationY>695</locationY>
+        <connector>
+            <targetReference>Accounts_Email</targetReference>
+        </connector>
+        <flowName>Dispatch_Product_Info_price_update_acc_to_pricebook</flowName>
+        <inputAssignments>
+            <name>Dispatch</name>
+            <value>
+                <elementReference>$Record</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+    <textTemplates>
+        <description>The template for the email to the field salesperson announcing a dispatch. Similar to Dispatch (Initial_Email_Template)</description>
+        <name>Dispatch_Announce_to_Field_Salesperson</name>
+        <text>&lt;p&gt;Dear Jalasanchay Team,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;New {!$Record.Name} is received. Please find the details below:&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Distributor: {!$Record.Distributor__c}&lt;/p&gt;&lt;p&gt;Dealer: {!$Record.Dealer__c}&lt;/p&gt;&lt;p&gt;Total Sq M: {!$Record.Dispatch_Total_Sq_mtr__c}&lt;/p&gt;&lt;p&gt;Remarks:&lt;/p&gt;&lt;p&gt;{!$Record.Remarks__c}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;For further details, please refer the dispatch page using the link below:&lt;/p&gt;&lt;p&gt;{!Current_Record_Link}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Regards,&lt;/p&gt;&lt;p&gt;Avana Operations Team&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Dispatch_Announce_To_Field_Salesperson_Subject</name>
+        <text>&lt;p&gt;{!$Record.Distributor__c} - {!$Record.Name} - {!$Record.CreatedDate}&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Dispatch_Approval_Announce_to_Field_Salesperson</name>
+        <text>&lt;p&gt;Dear Jalasanchay Team,&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;{!$Record.Name} has been approved. Commercial team is making invoices now.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;For further details, please refer the dispatch page using the link below:&lt;/p&gt;&lt;p&gt;{!Current_Record_Link}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Regards,&lt;/p&gt;&lt;p&gt;Avana Operations Team&lt;/p&gt;</text>
+    </textTemplates>
+</Flow>

@@ -1,0 +1,170 @@
+<template>
+    <lightning-record-edit-form record-id={recordId} object-api-name="Retail_Lead_Visit__c" >
+        <lightning-messages> </lightning-messages>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="customerHeader slds-modal__container">
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeQuickAction}>
+                            <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse" size="small" ></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button> 
+                        <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate slds-text-heading--medium">New Lead Visit</h2>
+                    </header>
+                    
+                    <div class=" slds-modal__content" id="modal-content-id-1">
+                        <div class="matchInnerPadding"> 
+                        <p class="matchTitle slds-section__title slds-theme_shade matchTitleShade">Information</p>
+                        <lightning-layout multiple-rows="true" class="matchContent">
+                           
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                                <lightning-input-field field-name="Date__c"  class="slds-p-horizontal_x-small" required data-name="date"></lightning-input-field>  
+                            </lightning-layout-item>
+                          
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                                <lightning-input-field field-name="OwnerId" class="slds-p-horizontal_x-small" required></lightning-input-field>  
+                            </lightning-layout-item>
+                            
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >    
+                                <lightning-input-field field-name="Lead_Name__c" class="slds-p-horizontal_x-small" data-name="leadName" onchange={handleOnChangeName} value={parentId} required></lightning-input-field>
+                            </lightning-layout-item>
+                      
+                            <template if:true={isDisplayLinkedCustomerId}>
+                                <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                                    <lightning-input-field field-name="Linked_Customer__c" class="slds-p-horizontal_x-small" value={leadVisit.Linked_Customer__c} onchange={handleOnchangeLinkedCustomerId}  disabled></lightning-input-field>
+                                </lightning-layout-item>
+                            </template>
+                        </lightning-layout>
+                        <lightning-layout multiple-rows="true" class="matchContent">
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                                <lightning-input-field field-name="Lead_Type__c" class="slds-p-horizontal_x-small" data-name="leadType" onchange={handleOnChangeLeadType} value={leadVisit.Lead_Type__c} required disabled></lightning-input-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                                <lightning-input-field field-name="Level_of_Interest__c" class="slds-p-horizontal_x-small" data-name="levelOfInterest" onchange={handleOnChangeLevelOfInterest} value={leadVisit.Level_of_Interest__c} required></lightning-input-field>
+                            </lightning-layout-item>
+                        
+                           
+                           <template if:true={isDisplayReasonForColdLead}>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                                <lightning-input-field field-name="Reason_for_Cold_Lead__c" class="slds-p-horizontal_x-small" value={leadVisit.Reason_for_Cold_Lead__c} onchange={handleOnchangeReasonforCold} data-name="reasonForCold"  required></lightning-input-field>
+                            </lightning-layout-item>
+                        </template>
+                        <template if:true={isDisplayOtherText}>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                                <lightning-input-field field-name="Other_Reason_For_Cold__c" class="slds-p-horizontal_x-small" value={leadVisit.Other_Reason_For_Cold__c} onchange={handleOnchangeOtherReasonforCold} data-name="otherReasonForCold"  required></lightning-input-field>
+                            </lightning-layout-item>
+                       
+                        </template>
+                        <template if:true={isDisplayFollowup}>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                                <lightning-input-field field-name="Follow_up_Date__c" class="slds-p-horizontal_x-small"  data-name="followupDate" onchange={handleOnChangeFollowup} value={leadVisit.Follow_up_Date__c} required></lightning-input-field>
+                                <div if:true={followupError} class="slds-text-color_error slds-p-horizontal_x-small" style="margin-left: 148px;margin-top:-10px;">
+                                    Follow up should be future date</div>
+                            </lightning-layout-item>
+                        </template>
+                       
+                        <template if:true={isDisplaySaleId}>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                                <lightning-input-field field-name="Sale_Type__c" class="slds-p-horizontal_x-small"  onchange={handleOnChangeSaleType} data-name="saleId"  value={leadVisit.Sale_Type__c} required></lightning-input-field>
+                            </lightning-layout-item>
+                        </template>
+                        <template if:true={isOrderId}>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                                <lightning-input-field field-name="Order_ID__c" class="slds-p-horizontal_x-small"  onchange={handleOnChangeOrderType} data-name="orderId"  value={leadVisit.isOrderId} required></lightning-input-field>
+                            </lightning-layout-item>
+                        </template>
+                        <!-- <template if:true={isDisplaySellerId}>
+                            <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6" >
+                                <lightning-input-field field-name="Seller_ID__c" class="slds-p-horizontal_x-small"  value={leadVisit.Seller_ID__c} onchange={handleOnchangeSeller} data-name="sellerId" required ></lightning-input-field>
+                            </lightning-layout-item>
+                        </template> -->
+                        <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="6">
+        <lightning-input-field field-name="Seller_ID__c" class={cssClass} value={leadVisit.Seller_ID__c} onchange={handleOnchangeSeller} data-name="sellerId" required ></lightning-input-field>
+    </lightning-layout-item>
+                        </lightning-layout>
+
+                        <lightning-card>
+                            <h3 slot="title" class="slds-align_absolute-center">
+                                <lightning-icon icon-name="standard:timesheet" alternative-text="Event" size="small"></lightning-icon>
+                                &nbsp; Products
+                            </h3>
+                            <lightning-record-edit-form object-api-name="Retail_Lead_Product__c" data-id="ProductGroupForm">
+                                <lightning-messages></lightning-messages>
+                                <div class="slds-m-around_medium">
+                                    <table class="slds-table slds-table_cell-buffer slds-table_bordered"
+                                        aria-labelledby="element-with-table-label other-element-with-table-label">
+                                        <thead>
+                                            <tr class="slds-line-height_reset">
+                                                <th class="" scope="col">
+                                                    <div class="slds-truncate" title="Product Group">Product Group</div>
+                                                </th>
+                                                <th class="" scope="col">
+                                                    <div class="slds-truncate" title="Quantity">Quantity</div>
+                                                </th>
+                                               
+                                                <template if:false={deleteAction}>
+                                                    <th class="" scope="col">
+                                                        <div class="slds-truncate" title="Action">Action</div>
+                                                    </th>
+                                                </template>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <template for:each={productList} for:item="product" for:index="index">
+                                                <tr key={product.id}>
+                                                    <td scope="row">
+                                                        <lightning-input-field field-name="Retail_Product_Group__c" value={product.Retail_Product_Group__c} data-index={index} data-name="productGroup"
+                                                        onchange={handleOnchangeProductGroup} variant="label-hidden" >
+                                                    </lightning-input-field>
+                                                    <div if:true={product.sameItemError} class="slds-text-color_error slds-p-horizontal_x-small">
+                                                        Select Different Product group</div>
+                                                        <div if:true={product.productGroupComplete} class="slds-text-color_error slds-p-horizontal_x-small">
+                                                           Please Select Product group</div>
+                                                    </td>
+                                                    <td scope="row">
+                                                        <lightning-input-field field-name="Quantity__c" value={product.Quantity__c}
+                                                        required onchange={handleChangeQuantity} variant="label-hidden" data-index={index} data-name="quantity">
+                                                    </lightning-input-field>
+                                                    </td>
+                                                    
+                                                    <template if:false={deleteAction}>
+                                                        <td>
+                                                            <lightning-icon icon-name="action:delete" alternative-text="Delete Row" size="small"
+                                                                title="Delete Row" onclick={removeRow} data-index={index}>
+                                                            </lightning-icon>
+                                                        </td>
+                                                    </template>
+                                                </tr>
+                                            </template>
+                                            
+                                        </tbody>
+                                    </table>
+                                    <div if:true={isErrorProduct} class="slds-text-color_error slds-p-horizontal_x-small">
+                                        Please include product information</div>
+                                </div>
+                            </lightning-record-edit-form>
+                            &nbsp;&nbsp;
+                            <lightning-button icon-name="action:new" variant="success" label="Add New" onclick={addRow}
+                                class="margin-left"></lightning-button>
+                        </lightning-card>
+                  
+                        <footer class="slds-modal__footer slds-text-align_center">
+                            <lightning-button label="Cancel" variant="neutral" onclick={closeQuickAction} style="margin:10px"></lightning-button> 
+                            <!--<lightning-button variant="brand"  name="save" label="Save" onclick={handleSaves}></lightning-button>-->
+
+                            <lightning-button
+                            class="slds-m-top_small"
+                            variant="brand"
+                            name="Save"
+                            label="Save" onclick={validateError}
+                            disabled={saveBool}
+                        >
+                        </lightning-button>
+                            
+                        </footer>
+                    </div>
+                    </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </lightning-record-edit-form>
+</template>

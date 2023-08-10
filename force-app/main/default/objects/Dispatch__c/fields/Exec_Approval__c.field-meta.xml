@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Exec_Approval__c</fullName>
+    <description>Exec approval for a dispatch is needed when the dispatch is being given on credit or there is some discounted prices.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Automatically set using Approval Process. Not to be manually changed.</inlineHelpText>
+    <label>Exec Approval</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Approved</fullName>
+                <default>false</default>
+                <label>Approved</label>
+            </value>
+            <value>
+                <fullName>Not Approved</fullName>
+                <default>false</default>
+                <label>Not Approved</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

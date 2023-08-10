@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CRM_Call_Unreachable_2__c</fullName>
+    <externalId>false</externalId>
+    <label>CRM Call Unreachable 2</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Not answered</fullName>
+                <default>false</default>
+                <label>Not answered</label>
+            </value>
+            <value>
+                <fullName>Out of network coverage</fullName>
+                <default>false</default>
+                <label>Out of network coverage</label>
+            </value>
+            <value>
+                <fullName>Phone switched off</fullName>
+                <default>false</default>
+                <label>Phone switched off</label>
+            </value>
+            <value>
+                <fullName>Invalid number</fullName>
+                <default>false</default>
+                <label>Invalid number</label>
+            </value>
+            <value>
+                <fullName>Incoming Service Barred</fullName>
+                <default>false</default>
+                <label>Incoming Service Barred</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

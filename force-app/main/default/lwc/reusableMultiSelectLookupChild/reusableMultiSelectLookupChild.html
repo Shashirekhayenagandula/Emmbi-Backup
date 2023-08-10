@@ -1,0 +1,68 @@
+<template>
+    <div class="slds-form-element">
+        <div class="slds-form-element__control">
+            <div class="slds-combobox_container">
+                <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open">
+                    <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+                            <lightning-input onchange={handleChange} type="search" autocomplete="off" label={label}
+                             field-level-help={helpText} placeholder={placeholder}
+                            onblur={handleInputBlur} onclick={handleClick}></lightning-input>
+                    </div>
+                </div>
+            </div>
+            <div if:true={isValueSelected}>
+                <ul class="slds-listbox slds-listbox_horizontal" role="listbox" aria-label="Selected Options:"
+                    aria-orientation="horizontal">
+                    <template for:each={selectedOptions} for:item="opt" for:index="index">
+                        <li class="slds-listbox-item" role="presentation" key={opt}>
+                            <span class="slds-pill" role="option" tabindex="0" aria-selected="true">
+                                <span class="slds-icon_container slds-pill__icon_container">
+                                    <lightning-icon icon-name={selectedIconName} size="x-small">
+                                    </lightning-icon>
+                                </span>
+                                <span class="slds-pill__label" title={opt.mainField}>{opt.mainField}</span>
+                                <span class="slds-icon_container slds-pill__remove" title="Remove">
+                                    <lightning-button-icon data-id={index} variant="bare" icon-name="utility:close"
+                                        size="x-small" alternative-text="Remove selected option" onclick={handleCommit}>
+                                    </lightning-button-icon>
+                                </span>
+                            </span>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+            <template if:true={showRecentRecords}>
+                <div id="listbox-id-4" tabindex="0" onblur={handleBlur}
+                    class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid" role="listbox">
+                    <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                        <template for:each={recordsList} for:item="rec">
+                            <li role="presentation" key={rec.id} class="slds-listbox__item">
+                                <div onclick={handleSelect} data-id={rec.id} data-mainfield={rec.mainField} 
+                                    data-subfield={rec.subField}
+                                    class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+                                    role="option">
+                                    <span class="slds-media__figure slds-listbox__option-icon">
+                                        <lightning-icon icon-name={selectedIconName} alternative-text={selectedIconName}
+                                            size="small"></lightning-icon>
+                                    </span>
+                                    <span class="slds-media__body">
+                                        <span class="slds-listbox__option-text slds-listbox__option-text_entity">
+                                            <span>
+                                                <mark>{rec.mainField}</mark>
+                                            </span>
+                                        </span>
+                                        <div  if:true={rec.subField} class="slds-listbox__option-meta slds-listbox__option-meta_entity">
+                                            {rec.subField}
+                                        </div>
+                                    </span>
+                                </div>
+                            </li>  
+                        </template>
+                    </ul>
+                </div>
+            </template>
+
+            <div if:true={msgBoolean} class="slds-align_absolute-center">{msg}</div>
+        </div>
+    </div>
+</template>

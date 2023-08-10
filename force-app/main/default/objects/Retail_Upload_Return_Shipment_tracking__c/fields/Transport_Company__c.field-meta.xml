@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Transport_Company__c</fullName>
+    <externalId>false</externalId>
+    <label>Transport Company</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Avinash Cargo Pvt Ltd</fullName>
+                <default>false</default>
+                <label>Avinash Cargo Pvt Ltd</label>
+            </value>
+            <value>
+                <fullName>Batcotranslogistics Pvt Ltd</fullName>
+                <default>false</default>
+                <label>Batcotranslogistics Pvt Ltd</label>
+            </value>
+            <value>
+                <fullName>Lalji Mulji Transport Co.</fullName>
+                <default>false</default>
+                <label>Lalji Mulji Transport Co.</label>
+            </value>
+            <value>
+                <fullName>Lavakesh Roadlines</fullName>
+                <default>false</default>
+                <label>Lavakesh Roadlines</label>
+            </value>
+            <value>
+                <fullName>Shree Nashik Goods Transport Co.</fullName>
+                <default>false</default>
+                <label>Shree Nashik Goods Transport Co.</label>
+            </value>
+            <value>
+                <fullName>VRL Logistics Limited</fullName>
+                <default>false</default>
+                <label>VRL Logistics Limited</label>
+            </value>
+            <value>
+                <fullName>Any Other</fullName>
+                <default>false</default>
+                <label>Any Other</label>
+            </value>
+            <value>
+                <fullName>Indian Post</fullName>
+                <default>false</default>
+                <label>Indian Post</label>
+            </value>
+            <value>
+                <fullName>Delhivery Courier</fullName>
+                <default>false</default>
+                <label>Delhivery Courier</label>
+            </value>
+            <value>
+                <fullName>Tirupati Courier Services Pvt Ltd</fullName>
+                <default>false</default>
+                <label>Tirupati Courier Services Pvt Ltd</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

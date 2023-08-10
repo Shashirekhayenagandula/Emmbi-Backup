@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Avana Api detail</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Avana Api details</value>
+    </caseValues>
+    <layouts>
+        <layout>Avana Api detail Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Seller_Wise_Visits</fullName>
+    <columns>NAME</columns>
+    <columns>Date__c</columns>
+    <columns>Visit_Owner__c</columns>
+    <columns>Lead_Type__c</columns>
+    <columns>Level_of_Interest__c</columns>
+    <columns>New_Lead__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Level_of_Interest__c</field>
+        <operation>notEqual</operation>
+        <value>Incomplete Data</value>
+    </filters>
+    <filters>
+        <field>Seller_ID__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>Seller-Wise Visits</label>
+</ListView>

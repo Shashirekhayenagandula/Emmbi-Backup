@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dealer_Distributor_for_Converted</fullName>
+    <active>true</active>
+    <description>Dealer / Distributor cannot be blank when marking stage as Converted.</description>
+    <errorConditionFormula>IF(ISPICKVAL( Opportunity_Stage__c ,&apos;Converted&apos;),ISBLANK( Dealer__c ),false)</errorConditionFormula>
+    <errorDisplayField>Dealer__c</errorDisplayField>
+    <errorMessage>Please fill out Dealer when when marking stage as Converted</errorMessage>
+</ValidationRule>

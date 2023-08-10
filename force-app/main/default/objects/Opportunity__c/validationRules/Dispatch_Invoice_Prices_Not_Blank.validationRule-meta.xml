@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dispatch_Invoice_Prices_Not_Blank</fullName>
+    <active>true</active>
+    <description>Pond liner invoice price needs to be mentioned when adding it to a dispatch</description>
+    <errorConditionFormula>ISCHANGED(Dispatch_Detail__c)
+&amp;&amp;
+NOT(ISBLANK(Dispatch_Detail__c))
+&amp;&amp; 
+(
+    ISBLANK(Pond_Liner_Invoice_Price__c)
+    ||
+    ISBLANK(Coating_Invoice_Price__c)
+    ||
+    ISBLANK(Installation_Invoice_Price__c)
+)</errorConditionFormula>
+    <errorDisplayField>Pond_Liner_Invoice_Price__c</errorDisplayField>
+    <errorMessage>Invoice Prices must be filled out when adding to a Dispatch (Pond Liner, Installation, and Coating)</errorMessage>
+</ValidationRule>

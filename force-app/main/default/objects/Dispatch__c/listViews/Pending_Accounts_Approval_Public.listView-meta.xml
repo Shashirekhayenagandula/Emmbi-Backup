@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pending_Accounts_Approval_Public</fullName>
+    <columns>NAME</columns>
+    <columns>Distributor__c</columns>
+    <columns>Dealer__c</columns>
+    <columns>Status__c</columns>
+    <columns>Dispatch_Warehouse__c</columns>
+    <columns>Dispatch_Total_Sq_mtr__c</columns>
+    <columns>Dispatch_Credit_Amount__c</columns>
+    <columns>Converted_PIs__c</columns>
+    <columns>Total_PIs__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Advance Approval</value>
+    </filters>
+    <label>Pending Accounts Approval</label>
+    <sharedTo>
+        <roleAndSubordinates>Accounts</roleAndSubordinates>
+    </sharedTo>
+</ListView>

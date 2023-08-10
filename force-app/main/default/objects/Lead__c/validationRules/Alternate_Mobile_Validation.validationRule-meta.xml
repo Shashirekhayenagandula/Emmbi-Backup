@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Alternate_Mobile_Validation</fullName>
+    <active>false</active>
+    <errorConditionFormula>IF(NOT(ISBLANK(  Alternate_Mobile_No__c  )),OR(NOT(LEN(  Alternate_Mobile_No__c  ) = 10),CONTAINS(  Alternate_Mobile_No__c ,&apos;.&apos;),NOT(ISNUMBER(  Alternate_Mobile_No__c  ))),false)</errorConditionFormula>
+    <errorMessage>Mobile No Should be 10 Digits.</errorMessage>
+</ValidationRule>

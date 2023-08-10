@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Exec_approval_validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>OR(
+ISPICKVAL( Status__c , &apos;Invoice&apos;),
+ISPICKVAL( Status__c , &apos;Hold&apos;),
+ISPICKVAL( Status__c , &apos;Warranty&apos;),
+ISPICKVAL( Status__c , &apos;Final Pay&apos;),
+ISPICKVAL( Status__c , &apos;Completed&apos;)
+)&amp;&amp; NOT(ISPICKVAL( Exec_Approval__c , &apos;Approved&apos;))</errorConditionFormula>
+    <errorDisplayField>Exec_Approval__c</errorDisplayField>
+    <errorMessage>The dispatch need Exec approval.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lost_Lead_Ponds</fullName>
+    <columns>NAME</columns>
+    <columns>Lead__c</columns>
+    <columns>Farmer_Name__c</columns>
+    <columns>Tehsil__c</columns>
+    <columns>District__c</columns>
+    <columns>OWNER.ALIAS</columns>
+    <columns>Opportunity_Lost_to__c</columns>
+    <columns>Other_Lost_Reason__c</columns>
+    <columns>Sale_lost_to_which_competitor__c</columns>
+    <columns>Pondliner_Size_Requested_Required_Sq_Mt__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Opportunity_Stage__c</field>
+        <operation>equals</operation>
+        <value>Not Interested</value>
+    </filters>
+    <label>Lost Sales</label>
+    <sharedTo>
+        <group>HO_Sales_Group</group>
+        <group>Sales_Group</group>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accounts_Pending_Advance_Approval</fullName>
+    <columns>NAME</columns>
+    <columns>Status__c</columns>
+    <columns>Sales_Owner__c</columns>
+    <columns>Order_Date__c</columns>
+    <columns>Order_Type__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Awaiting Accounts</value>
+    </filters>
+    <label>Awaiting Accounts Approval</label>
+    <sharedTo>
+        <group>Accounts</group>
+    </sharedTo>
+</ListView>

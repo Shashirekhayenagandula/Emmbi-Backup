@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Farmer</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Farmers</value>
+    </caseValues>
+    <layouts>
+        <layout>Lead Layout</layout>
+        <sections>
+            <label></label>
+            <section>Address details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Billing details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Unreachable Calls</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>CheckIn_CheckOut</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Convert</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>New_Product</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Alternate_Mobile_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Convert_From_Convert_Button</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Mobile_10_digit_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Record_Lock_Once_Lead_Is_Converted</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Unreachable_calls_should_have_date</name>
+    </validationRules>
+</CustomObjectTranslation>

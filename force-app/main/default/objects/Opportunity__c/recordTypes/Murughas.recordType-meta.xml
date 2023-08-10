@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Murughas</fullName>
+    <active>true</active>
+    <compactLayoutAssignment>Opportunity_Compact_Layout</compactLayoutAssignment>
+    <label>Retail Products</label>
+    <picklistValues>
+        <picklist>CRM_Call_Farmer_Satisfied__c</picklist>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yes</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CRM_Call_Unreachable_1__c</picklist>
+        <values>
+            <fullName>Invalid number</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not answered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Out of network coverage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone switched off</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>CRM_Call_Unreachable_2__c</picklist>
+        <values>
+            <fullName>Invalid number</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not answered</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Out of network coverage</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Phone switched off</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Dispatched_From__c</picklist>
+        <values>
+            <fullName>Aurangabad %28MH%29 Warehouse</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Nashik %28MH%29 Warehouse</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Silvassa Factory</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sri Ganganagar %28RJ%29 Warehouse</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Farmer_feedback__c</picklist>
+        <values>
+            <fullName>Not Satisfied</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Satisfied</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Interest_Level_after_visit__c</picklist>
+        <values>
+            <fullName>Not Interested</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Positive Feedback</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rate Negotiation</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Jalasanchay_Product_Type__c</picklist>
+        <values>
+            <fullName>Jalasanchay</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jalasanchay 1000</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jalasanchay 750</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Jalasanchay Super</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Samruddhi 300</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Samruddhi 400</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Murugas_Bag_Size__c</picklist>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Name_of_Operator__c</picklist>
+        <values>
+            <fullName>ASHHG04-Rajesh Kumar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ASHTM01-Bharat Bhand</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AVATM01-Abhay Yadav</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AVATM03-Roshan Rathod</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>AVATM04-Bhushan Rathod</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BALTM01-Vitthal Dhere</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BALTM04-Pradip Lohakare</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dinanath Yadav</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dungar Ram</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Gurjinder Singh</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>JINHG01-Ainl Jhinjha</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>JINHG02-pankaj Godara</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>KRUTM01-Anil Kushawaha</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rahul Chavhan</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rahul Yadav</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Ramesh Kumar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SAITM01-Rahul Yadav</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>SARTM02-Shekhar Zarekar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sangam Yadav</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shailendra Yadav</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shelendra Kumar</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shyam Yadav</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Surendra Kumar</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Operator_machine_used__c</picklist>
+        <values>
+            <fullName>Handgun</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Twinny</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Opportunity_Lost_to__c</picklist>
+        <values>
+            <fullName>Bad review of product</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not available in area</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not available with preferred retailer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Others</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Price too high</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Subsidy not coming on time</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Opportunity_Stage__c</picklist>
+        <values>
+            <fullName>Contact Later</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Converted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Interested</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Interested</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Pondliner_Variant__c</picklist>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Retail_Product_Type__c</picklist>
+        <values>
+            <fullName>1000L</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>140 GSM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>220 GSM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>370 GSM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>500L</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>750L</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Blue 4000 denier</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Full bag</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Liner</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waterproof Sutli %28Brown 5000 denier%29</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>White 4000 denier</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Retail_Product__c</picklist>
+        <values>
+            <fullName>Avana Tank</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Kapila Murughas Bag</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prabal Thread</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Rakshak Tarpaulin</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

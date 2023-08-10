@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X13_14_15_Prod_Info</fullName>
+    <columns>Invoice_Date__c</columns>
+    <columns>NAME</columns>
+    <columns>Lead__c</columns>
+    <columns>Farmer_Name__c</columns>
+    <columns>Opportunity_Stage__c</columns>
+    <columns>Tehsil__c</columns>
+    <columns>District__c</columns>
+    <columns>Jalasanchay_Product_Type__c</columns>
+    <columns>Pondliner_Size_Requested_Required_Sq_Mt__c</columns>
+    <columns>Follow_up_Date__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>Dealer__c</columns>
+    <columns>Distributor__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Invoice_Date__c</field>
+        <operation>greaterThan</operation>
+        <value>1/12/2023</value>
+    </filters>
+    <label>13 14 15 Prod Info</label>
+    <sharedTo>
+        <role>Accounts</role>
+    </sharedTo>
+</ListView>

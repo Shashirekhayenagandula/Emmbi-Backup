@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Retail_Product_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Retail Product Type</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Retail_Product__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Full bag</fullName>
+                <default>false</default>
+                <label>Full bag</label>
+            </value>
+            <value>
+                <fullName>Liner</fullName>
+                <default>false</default>
+                <label>Liner</label>
+            </value>
+            <value>
+                <fullName>140 GSM</fullName>
+                <default>false</default>
+                <label>140 GSM</label>
+            </value>
+            <value>
+                <fullName>220 GSM</fullName>
+                <default>false</default>
+                <label>220 GSM</label>
+            </value>
+            <value>
+                <fullName>370 GSM</fullName>
+                <default>false</default>
+                <label>370 GSM</label>
+            </value>
+            <value>
+                <fullName>Blue 4000 denier</fullName>
+                <default>false</default>
+                <label>Blue 4000 denier</label>
+            </value>
+            <value>
+                <fullName>White 4000 denier</fullName>
+                <default>false</default>
+                <label>White 4000 denier</label>
+            </value>
+            <value>
+                <fullName>Waterproof Sutli (Brown 5000 denier)</fullName>
+                <default>false</default>
+                <label>Waterproof Sutli (Brown 5000 denier)</label>
+            </value>
+            <value>
+                <fullName>500L</fullName>
+                <default>false</default>
+                <label>500L</label>
+            </value>
+            <value>
+                <fullName>750L</fullName>
+                <default>false</default>
+                <label>750L</label>
+            </value>
+            <value>
+                <fullName>1000L</fullName>
+                <default>false</default>
+                <label>1000L</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Avana Tank</controllingFieldValue>
+            <valueName>500L</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Avana Tank</controllingFieldValue>
+            <valueName>750L</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Avana Tank</controllingFieldValue>
+            <valueName>1000L</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Kapila Murughas Bag</controllingFieldValue>
+            <valueName>Full bag</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Kapila Murughas Bag</controllingFieldValue>
+            <valueName>Liner</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Rakshak Tarpaulin</controllingFieldValue>
+            <valueName>140 GSM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Rakshak Tarpaulin</controllingFieldValue>
+            <valueName>220 GSM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Rakshak Tarpaulin</controllingFieldValue>
+            <valueName>370 GSM</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Prabal Thread</controllingFieldValue>
+            <valueName>Blue 4000 denier</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Prabal Thread</controllingFieldValue>
+            <valueName>White 4000 denier</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Prabal Thread</controllingFieldValue>
+            <valueName>Waterproof Sutli (Brown 5000 denier)</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

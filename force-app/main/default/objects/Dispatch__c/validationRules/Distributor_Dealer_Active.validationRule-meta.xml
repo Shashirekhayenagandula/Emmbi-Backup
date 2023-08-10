@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Distributor_Dealer_Active</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT(
+    NOT(ISBLANK(Distributor__c))
+    &amp;&amp; 
+    Distributor__r.Active__c
+    &amp;&amp;
+    ( ISBLANK(Dealer__c) || Dealer__r.Active__c )
+)</errorConditionFormula>
+    <errorMessage>Distributor / Dealer should be Active!</errorMessage>
+</ValidationRule>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Retail_Lead_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Retail_Lead__c</pageOrSobjectType>
+    </actionOverrides>
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>true</shouldOverrideOrgTheme>
+    </brand>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Avana Retail</label>
+    <navType>Standard</navType>
+    <tabs>standard-home</tabs>
+    <tabs>QR_Code_Product_Details</tabs>
+    <tabs>Retail_Customer__c</tabs>
+    <tabs>Retail_Lead__c</tabs>
+    <tabs>Retail_Taluka__c</tabs>
+    <tabs>Retail_State__c</tabs>
+    <tabs>Retail_District__c</tabs>
+    <tabs>Retail_Product_Group__c</tabs>
+    <tabs>Retail_Product__c</tabs>
+    <tabs>Retail_Supplier__c</tabs>
+    <tabs>Retail_Lead_Visit__c</tabs>
+    <tabs>Retail_Lead_Product__c</tabs>
+    <tabs>Retail_Rack__c</tabs>
+    <tabs>Retail_Warehouse__c</tabs>
+    <tabs>Retail_Employee__c</tabs>
+    <tabs>Retail_Consumables__c</tabs>
+    <tabs>Retail_Department__c</tabs>
+    <tabs>Retail_Inventory__c</tabs>
+    <tabs>Retail_Designation__c</tabs>
+    <tabs>Retail_Order__c</tabs>
+    <tabs>Retail_Upload_Commercial_Invoice__c</tabs>
+    <tabs>Retail_Order_Product__c</tabs>
+    <tabs>Retail_Packaging_List__c</tabs>
+    <tabs>Retail_Upload_Shipment_tracking_Info__c</tabs>
+    <tabs>Retail_Bundle__c</tabs>
+    <tabs>Retail_Inventory_Purchase_Log__c</tabs>
+    <uiType>Lightning</uiType>
+</CustomApplication>

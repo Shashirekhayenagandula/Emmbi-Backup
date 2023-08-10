@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invoice_Num_and_Date_for_Converted</fullName>
+    <active>true</active>
+    <description>Invoice number and Invoice date cannot be blank when marking stage as Converted.</description>
+    <errorConditionFormula>ISPICKVAL(Opportunity_Stage__c ,&apos;Converted&apos;) &amp;&amp;
+(
+ISBLANK(Invoice_Date__c)
+||
+ISBLANK( Invoice_Number__c )
+)</errorConditionFormula>
+    <errorDisplayField>Invoice_Number__c</errorDisplayField>
+    <errorMessage>Please fill Invoice Number, Invoice Date before change stage to Converted</errorMessage>
+</ValidationRule>

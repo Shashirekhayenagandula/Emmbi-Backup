@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Resolution_Vendor_For_Under_Leakage</fullName>
+    <active>true</active>
+    <errorConditionFormula>IF(ISPICKVAL( Resolution__c ,&apos;Under Water Leakage&apos;),ISPICKVAL( Resolution_Vendor_Name__c,&apos;&apos; ),false)</errorConditionFormula>
+    <errorMessage>Please Enter Resolution Vendor name</errorMessage>
+</ValidationRule>

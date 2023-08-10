@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pending_Dispatches</fullName>
+    <columns>NAME</columns>
+    <columns>Distributor__c</columns>
+    <columns>Dealer__c</columns>
+    <columns>Dispatch_Warehouse__c</columns>
+    <columns>Dispatch_Total_Sq_mtr__c</columns>
+    <columns>Freight_Charge_Bearer__c</columns>
+    <columns>Preferred_Transport_Company__c</columns>
+    <columns>Closest_Transport_Branch__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Hold</value>
+    </filters>
+    <label>Pending Dispatches</label>
+    <sharedTo>
+        <role>Asst_Manager_Commercial</role>
+        <role>GM_Production</role>
+    </sharedTo>
+</ListView>

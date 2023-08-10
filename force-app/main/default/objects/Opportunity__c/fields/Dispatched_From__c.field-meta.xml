@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dispatched_From__c</fullName>
+    <externalId>false</externalId>
+    <label>Dispatched From(old)</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Silvassa Factory</fullName>
+                <default>false</default>
+                <label>Silvassa Factory</label>
+            </value>
+            <value>
+                <fullName>Aurangabad (MH) Warehouse</fullName>
+                <default>false</default>
+                <label>Aurangabad (MH) Warehouse</label>
+            </value>
+            <value>
+                <fullName>Nashik (MH) Warehouse</fullName>
+                <default>false</default>
+                <label>Nashik (MH) Warehouse</label>
+            </value>
+            <value>
+                <fullName>Sri Ganganagar (RJ) Warehouse</fullName>
+                <default>false</default>
+                <label>Sri Ganganagar (RJ) Warehouse</label>
+            </value>
+            <value>
+                <fullName>Pune (MH) Warehouse</fullName>
+                <default>false</default>
+                <label>Pune (MH) Warehouse</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
